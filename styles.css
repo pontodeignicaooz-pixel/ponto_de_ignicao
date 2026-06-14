@@ -1,4 +1,4 @@
-/* Paleta de Cores extraída da logo "Ponto de Ignição" (IMG-20260614-WA0011.jpg) */
+/* Paleta de Cores extraída da logo "Ponto de Ignição" */
 :root {
   --bg-gradient-start: #041430; /* Azul Marinho Profundo da Logo */
   --bg-gradient-end: #072754;   /* Azul Royal do preenchimento da Logo */
@@ -10,6 +10,10 @@
 }
 
 /* Configurações Gerais */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
@@ -70,8 +74,33 @@ p {
   object-fit: contain;
 }
 
+.logo-fallback {
+  width: 100%;
+  max-width: 220px;
+  height: 220px;
+  background: linear-gradient(135deg, #041430, #072754);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  color: #FFD500;
+  margin: 0 auto 15px;
+}
+
+.brand-sub {
+  font-size: 0.9em;
+  color: var(--accent-yellow);
+  font-weight: 600;
+  margin: 10px 0 0 0;
+}
+
 /* Links de Navegação */
-nav a {
+nav {
+  margin-bottom: 20px;
+}
+
+nav a.nav-link {
   display: block;
   padding: 12px 18px;
   text-decoration: none;
@@ -83,7 +112,7 @@ nav a {
   border-left: 3px solid transparent;
 }
 
-nav a:hover, nav a.active {
+nav a.nav-link:hover, nav a.nav-link.active {
   background-color: rgba(255, 69, 0, 0.15);
   color: var(--accent-yellow);
   border-left: 3px solid var(--accent-orange);
@@ -151,7 +180,7 @@ nav a:hover, nav a.active {
   color: var(--text-white);
   padding: 12px 18px;
   border-radius: 8px;
-  font-weight: calc(700);
+  font-weight: 700;
   font-size: 0.9em;
   text-align: center;
   box-shadow: 0 4px 15px rgba(255, 69, 0, 0.5);
@@ -177,6 +206,12 @@ nav a:hover, nav a.active {
   border-radius: 8px;
   border-top: 4px solid var(--accent-yellow);
   position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.servico-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(255, 213, 0, 0.15);
 }
 
 .servico-item h4 {
@@ -190,23 +225,23 @@ nav a:hover, nav a.active {
   margin: 0;
 }
 
+.icon-raio,
+.icon-smart,
+.icon-reparo,
+.icon-pequeno {
+  font-size: 2em;
+  margin-right: 8px;
+  display: inline-block;
+}
+
 /* Estilo crítico para o box focado em Urgência */
-.item-alerta {
+.item-urgencia {
   border-top: 4px solid var(--accent-orange);
   background-color: rgba(255, 69, 0, 0.05);
 }
 
-.servico-badge {
-  position: absolute;
-  top: -12px;
-  right: 15px;
-  background-color: var(--accent-orange);
-  color: white;
-  font-size: 0.7em;
-  padding: 2px 8px;
-  border-radius: 4px;
-  text-transform: uppercase;
-  font-weight: bold;
+.item-urgencia:hover {
+  box-shadow: 0 8px 20px rgba(255, 69, 0, 0.2);
 }
 
 /* Portfólio / Galeria de Fotos */
@@ -224,6 +259,12 @@ nav a:hover, nav a.active {
   padding: 12px;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery figure:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(255, 213, 0, 0.1);
 }
 
 .gallery img {
@@ -250,17 +291,18 @@ nav a:hover, nav a.active {
   cursor: pointer;
   text-align: center;
   transition: all 0.2s ease-in-out;
+  border: none;
+  font-size: 1em;
 }
 
 .button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .button-cta {
   background-color: var(--accent-orange);
   color: var(--text-white);
-  border: none;
 }
 
 .button-large {
@@ -281,6 +323,12 @@ nav a:hover, nav a.active {
   color: white;
   width: 100%;
   box-sizing: border-box;
+  font-weight: bold;
+}
+
+.button-whatsapp:hover {
+  background-color: #1ead52;
+  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
 }
 
 /* Card Final de Fechamento */
@@ -296,11 +344,19 @@ nav a:hover, nav a.active {
   padding: 0;
 }
 
+.cta-botoes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
+}
+
 /* Otimização Responsiva Inteligente para Dispositivos Móveis */
 @media (max-width: 900px) {
   .app {
     flex-direction: column;
   }
+  
   .sidebar {
     width: 100%;
     min-width: 100%; 
@@ -311,16 +367,27 @@ nav a:hover, nav a.active {
     border-right: none;
     border-bottom: 2px solid var(--accent-orange);
   }
+  
   .content {
     padding: 20px;
     max-width: 100%; 
   }
+  
   .hero .header, .hero .body {
     padding: 20px; 
   }
+  
   .selo-urgencia {
     font-size: 0.8em;
     padding: 8px 12px;
+    top: 15px;
+    right: 15px;
+  }
+  
+  .logo-fallback {
+    max-width: 180px;
+    height: 180px;
+    font-size: 60px;
   }
 }
 
@@ -328,10 +395,25 @@ nav a:hover, nav a.active {
   .content {
     padding: 12px;
   }
+  
   .card {
     padding: 20px;
   }
+  
   .gallery {
     grid-template-columns: 1fr;
+  }
+  
+  .servicos-lista {
+    grid-template-columns: 1fr;
+  }
+  
+  h2 {
+    font-size: 1.4em;
+  }
+  
+  .button-large {
+    font-size: 1em;
+    padding: 12px 24px;
   }
 }

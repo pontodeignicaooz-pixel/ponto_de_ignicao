@@ -6,11 +6,12 @@
   <title>Ponto de Ignição — Urgência e Modernização Residencial</title>
   
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23041430' width='100' height='100'/><text x='50' y='65' font-size='50' fill='%23FFD500' text-anchor='middle' font-weight='bold'>⚡</text></svg>" type="image/svg+xml">
   
   <meta name="description" content="Ponto de Ignição: Reparos elétricos urgentes, automação residencial e modernização de fiação em casas antigas em Osasco e região.">
   <meta property="og:title" content="Ponto de Ignição — Soluções Elétricas Urgentes">
   <meta property="og:description" content="Ficou sem energia? Curto-circuito? Atendimento urgente. Também modernizamos sua casa antiga com automação.">
-  <meta property="og:image" content="imagens/logo.jpg.jpeg">
+  <meta property="og:image" content="imagens/logo.png">
 </head>
 
 <body>
@@ -18,22 +19,23 @@
     
     <aside class="sidebar">
       <div class="brand">
-        <img src="imagens/logo.png" alt="Logo Ponto de Ignição" class="logo-img" />
+        <img src="imagens/logo.png" alt="Logo Ponto de Ignição" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="logo-fallback" style="display:none;">⚡</div>
         <p class="brand-sub">Soluções & Automação</p>
       </div>
       
-      <nav>
-        <a href="#sobre" class="active">Sobre a Empresa</a>
-        <a href="#servicos">Nossos Serviços</a>
-        <a href="#portfolio">Trabalhos Realizados</a>
-        <a href="#contato">Solicitar Orçamento</a>
+      <nav aria-label="Menu Principal">
+        <a href="#sobre" class="nav-link active">Sobre a Empresa</a>
+        <a href="#servicos" class="nav-link">Nossos Serviços</a>
+        <a href="#portfolio" class="nav-link">Trabalhos Realizados</a>
+        <a href="#contato" class="nav-link">Solicitar Orçamento</a>
       </nav>
       
       <div class="contato-rapido">
         <h3>Atendimento Rápido</h3>
         <p>Atendemos urgências e realizamos visitas técnicas em Osasco e região.</p>
         
-        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="button button-whatsapp">
+        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="button button-whatsapp" aria-label="Chamar no WhatsApp">
           Chamar no WhatsApp
         </a>
       </div>
@@ -42,7 +44,7 @@
     <main class="content">
       
       <section id="sobre" class="card hero">
-        <img class="cover" src="imagens/capa-eletrica.jpg" alt="Instalações Elétricas Ponto de Ignição" onerror="this.src='https://via.placeholder.com/1000x350?text=Imagem+de+Capa+(Banner)'">
+        <img class="cover" src="imagens/capa-eletrica.jpg" alt="Instalações Elétricas Ponto de Ignição" loading="lazy" onerror="this.src='https://via.placeholder.com/1000x350?text=Imagem+de+Capa+(Banner)'">
         
         <div class="selo-urgencia">
           Reparos<br>Urgentes
@@ -53,8 +55,8 @@
         </div>
         
         <div class="body">
-          <p>A <strong>Ponto de Ignição</strong> é a sua resposta rápida para o caos elétrico. Nós somos especializados em resolver os problemas que exigem ação imediata: curto-circuitos, quedas de energia sem explicação e instalações antigas e perigosas que ninguém mais quer assumir.</p>
-          <p>Nossa equipe de Osasco é treinada para diagnosticar e reabilitar a fiação em casas antigas, garantindo segurança e permitindo que você aproveite as novas tecnologias de automação residencial. Não espere um problema pequeno virar uma catástrofe.</p>
+          <p>A <strong>Ponto de Ignição</strong> é a sua resposta rápida para o caos elétrico. Nós somos especializados em resolver os problemas que exigem ação imediata: curto-circuitos, quedas de energia, disjuntores disparando constantemente e incêndios elétricos iminentes. Com atendimento 24h em Osasco e região, garantimos que sua casa fica segura.</p>
+          <p>Nossa equipe de Osasco é treinada para diagnosticar e reabilitar a fiação em casas antigas, garantindo segurança e permitindo que você aproveite as novas tecnologias de automação residencial. De instalações urgentes a Smart Homes completos, resolvemos seu problema do jeito certo.</p>
         </div>
       </section>
 
@@ -64,22 +66,22 @@
         
         <div class="servicos-lista">
           <div class="servico-item item-urgencia">
-            <span class="icon-raio">&#9889;</span>
+            <span class="icon-raio" aria-hidden="true">⚡</span>
             <h4>Atendimento de Emergência 24h</h4>
             <p>Ficou no escuro? Disjuntor caindo toda hora? Atendemos chamados urgentes para neutralizar falhas imediatamente.</p>
           </div>
           <div class="servico-item">
-            <span class="icon-smart">&#128161;</span>
+            <span class="icon-smart" aria-hidden="true">💡</span>
             <h4>Automação Residencial (Smart Home)</h4>
             <p>Transforme sua casa antiga. Instalação de interruptores inteligentes, assistentes virtuais e iluminação automatizada.</p>
           </div>
           <div class="servico-item">
-            <span class="icon-reparo">&#128295;</span>
+            <span class="icon-reparo" aria-hidden="true">🔧</span>
             <h4>Modernização de Casas Antigas</h4>
             <p>Substituição de fiação antiga e fora do padrão, troca de tomadas velhas por NBR 14136 e adequação de quadros de força.</p>
           </div>
           <div class="servico-item">
-            <span class="icon-pequeno">&#9874;</span>
+            <span class="icon-pequeno" aria-hidden="true">⚙️</span>
             <h4>Pequenos Reparos e Soluções</h4>
             <p>Instalação de chuveiros, lustres, ventiladores de teto e troca de resistências com agilidade.</p>
           </div>
@@ -92,22 +94,22 @@
         
         <div class="gallery">
           <figure>
-            <img src="imagens/trabalho1.jpg" alt="Organização de Quadro de Força" onerror="this.src='https://via.placeholder.com/400x300?text=Foto+Trabalho+1'">
+            <img src="imagens/trabalho1.jpg" alt="Organização de Quadro de Força" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Foto+Trabalho+1'">
             <figcaption>Adequação do Quadro de Força (antes fusível, depois disjuntor)</figcaption>
           </figure>
         
           <figure>
-            <img src="imagens/trabalho2.jpg" alt="Automação de Iluminação" onerror="this.src='https://via.placeholder.com/400x300?text=Foto+Trabalho+2'">
+            <img src="imagens/trabalho2.jpg" alt="Automação de Iluminação" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Foto+Trabalho+2'">
             <figcaption>Automação de Iluminação Smart</figcaption>
           </figure>
         
           <figure>
-            <img src="imagens/trabalho3.jpg" alt="Troca de Fiação em Casa Antiga" onerror="this.src='https://via.placeholder.com/400x300?text=Foto+Trabalho+3'">
+            <img src="imagens/trabalho3.jpg" alt="Troca de Fiação em Casa Antiga" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Foto+Trabalho+3'">
             <figcaption>Troca de Fiação Perigosa Exposta</figcaption>
           </figure>
         
           <figure>
-            <img src="imagens/trabalho4.jpg" alt="Instalação de Chuveiro" onerror="this.src='https://via.placeholder.com/400x300?text=Foto+Trabalho+4'">
+            <img src="imagens/trabalho4.jpg" alt="Instalação de Chuveiro" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Foto+Trabalho+4'">
             <figcaption>Reparos Rápidos e Seguros</figcaption>
           </figure>
         </div>
@@ -117,7 +119,7 @@
         <h2>Não arrisque a segurança de sua família.</h2>
         <p>Uma instalação elétrica antiga é um incêndio esperando para acontecer. Faça um orçamento gratuito e garanta paz de espírito.</p>
         <div class="cta-botoes-container">
-          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="button button-cta button-large">
+          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="button button-cta button-large" aria-label="Agendar Atendimento de Urgência no WhatsApp">
             Agendar Atendimento de Urgência
           </a>
         </div>
@@ -126,12 +128,24 @@
     </main>
   </div>
 
-  <script>
-    const links = document.querySelectorAll('nav a');
-    links.forEach(link => {
-      link.addEventListener('click', function() {
-        links.forEach(l => l.classList.remove('active'));
+  <script type="text/javascript">
+    const navLinks = document.querySelectorAll('nav a.nav-link');
+    
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        navLinks.forEach(l => l.classList.remove('active'));
         this.classList.add('active');
+      });
+    });
+
+    // Smooth scroll behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+        }
       });
     });
   </script>
