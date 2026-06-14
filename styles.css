@@ -1,78 +1,110 @@
-/* Paleta de Cores suavizada extraída da logo "Ponto de Ignição" */
-:root {
-  --bg-gradient-start: #041430; /* Azul Marinho Profundo */
-  --bg-gradient-end: #0d2855;   /* Azul Royal mais suave */
-  --card-bg: #0d3a6b;           /* Azul médio suavizado */
-  --card-bg-hover: #1a4a7f;     /* Azul claro para hover */
-  --accent-yellow: #FFD500;     /* Amarelo Dourado */
-  --accent-orange: #E67E22;     /* Laranja suave (era #FF4500) */
-  --accent-orange-light: #F39C12; /* Laranja claro para variações */
-  --text-white: #ffffff;        /* Branco */
-  --text-grey: #a8b8cc;         /* Cinza azulado suave */
-  --border-subtle: rgba(255, 213, 0, 0.08);
+* {
+  box-sizing: border-box;
 }
 
-/* Configurações Gerais */
+/* Paleta de Cores suavizada */
+:root {
+  --bg-gradient-start: #041430;
+  --bg-gradient-end: #0d2855;
+  --card-bg: #0d3a6b;
+  --accent-yellow: #FFD500;
+  --accent-orange: #E67E22;
+  --accent-orange-light: #F39C12;
+  --text-white: #ffffff;
+  --text-grey: #a8b8cc;
+  --border-subtle: rgba(255, 213, 0, 0.08);
+  --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Configurações Base */
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   margin: 0;
   padding: 0;
   background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
   background-attachment: fixed;
+  background-size: 100vw 100vh;
   color: var(--text-white);
   line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
   color: var(--accent-yellow);
-  margin-top: 0;
+  margin: 0 0 0.5em 0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
 }
 
 h2 {
-  font-size: 1.8em;
-  border-bottom: 2px solid var(--accent-orange);
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+  font-size: clamp(1.3rem, 4vw, 2rem);
+  border-bottom: 3px solid var(--accent-orange);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: clamp(1rem, 3vw, 1.3rem);
 }
 
 p {
   color: var(--text-grey);
+  margin: 0 0 1rem 0;
+  font-size: clamp(0.95rem, 2vw, 1rem);
+  line-height: 1.8;
 }
 
-/* Estrutura Flexbox Principal */
+.subtitle {
+  color: var(--text-grey);
+  font-size: clamp(0.9rem, 2vw, 1.05rem) !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Estrutura Principal */
 .app {
   display: flex;
-  max-width: 1400px;
-  margin: 0 auto;
+  gap: 0;
   min-height: 100vh;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
-/* Menu Lateral Esquerdo (Sidebar) */
+/* Sidebar */
 .sidebar {
-  width: 300px;
+  width: 100%;
+  max-width: 320px;
   background: linear-gradient(180deg, rgba(4, 20, 48, 0.98) 0%, rgba(13, 42, 85, 0.95) 100%);
-  padding: 25px;
+  padding: clamp(20px, 4vw, 30px);
   box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
   position: sticky;
   top: 0;
   height: 100vh;
   overflow-y: auto;
-  box-sizing: border-box;
   border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
 }
 
 .brand {
   text-align: center;
-  margin-bottom: 35px;
+  margin-bottom: clamp(25px, 5vw, 40px);
+  flex-shrink: 0;
 }
 
 .logo-img {
   width: 100%;
-  max-width: 220px;
+  max-width: 200px;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 8px rgba(255, 213, 0, 0.15));
@@ -80,14 +112,14 @@ p {
 
 .logo-fallback {
   width: 100%;
-  max-width: 220px;
-  height: 220px;
+  max-width: 200px;
+  height: 200px;
   background: linear-gradient(135deg, #041430 0%, #0d3a6b 100%);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 80px;
+  font-size: 100px;
   color: #FFD500;
   margin: 0 auto 15px;
   box-shadow: 0 4px 15px rgba(255, 213, 0, 0.1);
@@ -95,189 +127,208 @@ p {
 }
 
 .brand-sub {
-  font-size: 0.9em;
+  font-size: 0.85rem !important;
   color: var(--accent-orange-light);
   font-weight: 600;
-  margin: 10px 0 0 0;
+  margin: 10px 0 0 0 !important;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
-/* Links de Navegação */
-nav {
-  margin-bottom: 20px;
+/* Navegação */
+.main-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: clamp(20px, 5vw, 30px);
+  flex-shrink: 0;
 }
 
-nav a.nav-link {
-  display: block;
-  padding: 12px 18px;
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
   text-decoration: none;
   color: var(--text-white);
   border-radius: 8px;
-  margin-bottom: 8px;
   font-weight: 600;
-  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  transition: var(--transition);
   border-left: 3px solid transparent;
+  position: relative;
 }
 
-nav a.nav-link:hover, nav a.nav-link.active {
+.nav-link:hover {
   background-color: rgba(230, 126, 34, 0.12);
+  transform: translateX(4px);
+}
+
+.nav-link.active {
+  background-color: rgba(230, 126, 34, 0.15);
   color: var(--accent-yellow);
   border-left: 3px solid var(--accent-orange);
 }
 
-/* Box Lateral do WhatsApp */
+/* Contato Rápido */
 .contato-rapido {
-  margin-top: 40px;
-  padding: 20px 15px;
+  margin-top: auto;
+  padding: clamp(15px, 3vw, 20px);
   background-color: rgba(255, 255, 255, 0.04);
   border-radius: 10px;
   border: 1px solid var(--border-subtle);
   text-align: center;
+  flex-shrink: 0;
 }
 
 .contato-rapido h3 {
-  font-size: 1.1em;
+  font-size: 0.9rem !important;
   color: var(--accent-orange-light);
-  margin: 0 0 8px 0;
+  margin: 0 0 8px 0 !important;
   text-transform: uppercase;
-  font-size: 0.95em;
   letter-spacing: 1px;
 }
 
 .contato-rapido p {
-  font-size: 0.85em;
-  margin: 0 0 15px 0;
+  font-size: 0.8rem !important;
+  margin: 0 0 15px 0 !important;
   color: var(--text-grey);
 }
 
-/* Área de Conteúdo Central */
+/* Content Area */
 .content {
-  flex-grow: 1;
-  padding: 40px;
-  max-width: 1000px;
-  min-width: 0; 
-  box-sizing: border-box;
+  flex: 1;
+  padding: clamp(20px, 4vw, 40px);
+  overflow-y: auto;
+  max-width: 100%;
 }
 
+/* Cards */
 .card {
   background: linear-gradient(135deg, rgba(13, 42, 85, 0.6) 0%, rgba(13, 58, 107, 0.4) 100%);
   border-radius: 12px;
-  padding: 35px;
-  margin-bottom: 35px;
+  padding: clamp(25px, 5vw, 40px);
+  margin-bottom: clamp(25px, 5vw, 40px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   border: 1px solid var(--border-subtle);
-  backdrop-filter: blur(10px);
+  transition: var(--transition);
 }
 
 .card:hover {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(135deg, rgba(13, 42, 85, 0.7) 0%, rgba(13, 58, 107, 0.5) 100%);
+  transform: translateY(-2px);
 }
 
-/* Banner Principal */
+/* Hero Section */
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 0;
+  padding: 0 !important;
   border-radius: 12px;
 }
 
 .hero .cover {
   width: 100%;
-  height: auto;
-  max-height: 350px;
+  height: clamp(250px, 50vw, 450px);
   object-fit: cover;
+  object-position: center;
 }
 
 .selo-urgencia {
   position: absolute;
-  bottom: 30px;
-  right: 30px;
+  bottom: clamp(15px, 3vw, 30px);
+  right: clamp(15px, 3vw, 30px);
   background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);
   color: var(--text-white);
-  padding: 14px 22px;
+  padding: clamp(12px, 2vw, 16px) clamp(16px, 3vw, 22px);
   border-radius: 10px;
   font-weight: 700;
-  font-size: 0.95em;
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
   text-align: center;
-  box-shadow: 0 6px 20px rgba(230, 126, 34, 0.25);
+  box-shadow: 0 6px 20px rgba(230, 126, 34, 0.3);
   z-index: 2;
-  letter-spacing: 0.5px;
-  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.3;
 }
 
-.hero .header, .hero .body {
-  padding: 35px;
-  background: linear-gradient(135deg, rgba(13, 42, 85, 0.7) 0%, rgba(13, 58, 107, 0.5) 100%);
+.icon-seal {
+  font-size: 1.5em;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-.hero .header h2 {
-  margin-bottom: 0;
+.hero .header {
+  padding: clamp(20px, 4vw, 30px);
+  background: linear-gradient(135deg, rgba(13, 42, 85, 0.8) 0%, rgba(13, 58, 107, 0.6) 100%);
 }
 
-/* Grid de Exibição de Serviços */
+.hero .header h1 {
+  margin-bottom: 0 !important;
+}
+
+.hero .body {
+  padding: clamp(20px, 4vw, 35px);
+  background: linear-gradient(135deg, rgba(13, 42, 85, 0.6) 0%, rgba(13, 58, 107, 0.4) 100%);
+}
+
+/* Serviços */
 .servicos-lista {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  margin-top: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 100%, 280px), 1fr));
+  gap: clamp(16px, 3vw, 24px);
+  margin-top: 2rem;
 }
 
 .servico-item {
   background: linear-gradient(135deg, rgba(13, 42, 85, 0.5) 0%, rgba(13, 58, 107, 0.3) 100%);
-  padding: 24px;
+  padding: clamp(20px, 4vw, 28px);
   border-radius: 10px;
   border: 1px solid var(--border-subtle);
   border-top: 4px solid var(--accent-yellow);
-  position: relative;
-  transition: all 0.3s ease;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .servico-item:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   box-shadow: 0 12px 28px rgba(255, 213, 0, 0.12);
   border-top: 4px solid var(--accent-orange);
-  background: linear-gradient(135deg, rgba(13, 42, 85, 0.6) 0%, rgba(13, 58, 107, 0.4) 100%);
 }
 
-.servico-item h4 {
-  margin: 12px 0 8px 0;
-  color: var(--text-white);
-  font-size: 1.1em;
-}
-
-.servico-item p {
-  font-size: 0.9em;
-  margin: 0;
-}
-
-.icon-raio,
-.icon-smart,
-.icon-reparo,
-.icon-pequeno {
-  font-size: 2.2em;
-  margin-right: 8px;
-  display: inline-block;
+.icon-container {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  margin-bottom: 12px;
   filter: drop-shadow(0 2px 4px rgba(255, 213, 0, 0.1));
 }
 
-/* Estilo para o box focado em Urgência */
+.servico-item h3 {
+  font-size: clamp(1rem, 2.5vw, 1.2rem) !important;
+  margin-bottom: 12px !important;
+}
+
+.servico-item p {
+  font-size: clamp(0.9rem, 2vw, 0.95rem) !important;
+  margin: 0 !important;
+  line-height: 1.6;
+}
+
 .item-urgencia {
   border-top: 4px solid var(--accent-orange);
-  background: linear-gradient(135deg, rgba(230, 126, 34, 0.08) 0%, rgba(243, 156, 18, 0.04) 100%);
+  background: linear-gradient(135deg, rgba(230, 126, 34, 0.1) 0%, rgba(243, 156, 18, 0.05) 100%);
 }
 
 .item-urgencia:hover {
-  box-shadow: 0 12px 28px rgba(230, 126, 34, 0.15);
-  background: linear-gradient(135deg, rgba(230, 126, 34, 0.12) 0%, rgba(243, 156, 18, 0.08) 100%);
+  box-shadow: 0 12px 28px rgba(230, 126, 34, 0.18);
 }
 
-/* Portfólio / Galeria de Fotos */
+/* Galeria */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  margin-top: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(160px, 100%, 280px), 1fr));
+  gap: clamp(16px, 3vw, 20px);
+  margin-top: 2rem;
 }
 
 .gallery figure {
@@ -287,41 +338,47 @@ nav a.nav-link:hover, nav a.nav-link.active {
   padding: 12px;
   border-radius: 10px;
   border: 1px solid var(--border-subtle);
-  transition: all 0.3s ease;
+  overflow: hidden;
+  transition: var(--transition);
 }
 
 .gallery figure:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   box-shadow: 0 12px 28px rgba(255, 213, 0, 0.1);
   border-color: rgba(230, 126, 34, 0.3);
 }
 
 .gallery img {
   width: 100%;
-  height: 190px;
+  height: clamp(150px, 30vw, 220px);
   object-fit: cover;
   border-radius: 8px;
+  display: block;
 }
 
 .gallery figcaption {
   margin-top: 12px;
-  font-size: 0.9em;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
   font-weight: 500;
   color: var(--text-grey);
+  line-height: 1.4;
 }
 
-/* Botões Customizados */
+/* Botões */
 .button {
-  display: inline-block;
-  padding: 12px 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: clamp(12px, 2vw, 16px) clamp(20px, 4vw, 32px);
   text-decoration: none;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  text-align: center;
-  transition: all 0.3s ease-in-out;
+  transition: var(--transition);
   border: none;
-  font-size: 1em;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  white-space: nowrap;
 }
 
 .button:hover {
@@ -335,10 +392,9 @@ nav a.nav-link:hover, nav a.nav-link.active {
 }
 
 .button-large {
-  font-size: 1.2em;
-  padding: 16px 32px;
+  font-size: clamp(1rem, 2.5vw, 1.2em);
+  padding: clamp(14px, 3vw, 18px) clamp(24px, 5vw, 40px);
   width: 100%;
-  box-sizing: border-box;
   box-shadow: 0 6px 18px rgba(230, 126, 34, 0.3);
 }
 
@@ -351,8 +407,6 @@ nav a.nav-link:hover, nav a.nav-link.active {
   background: linear-gradient(135deg, #25D366 0%, #20BA58 100%);
   color: white;
   width: 100%;
-  box-sizing: border-box;
-  font-weight: 600;
   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
 }
 
@@ -361,7 +415,11 @@ nav a.nav-link:hover, nav a.nav-link.active {
   box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
 }
 
-/* Card Final de Fechamento */
+.icon-wa, .icon-cta {
+  font-size: 1.2em;
+}
+
+/* Final CTA */
 .final-cta {
   text-align: center;
   background: linear-gradient(135deg, rgba(4, 20, 48, 0.8) 0%, rgba(13, 42, 85, 0.6) 100%);
@@ -369,15 +427,15 @@ nav a.nav-link:hover, nav a.nav-link.active {
 }
 
 .final-cta h2 {
-  color: var(--accent-yellow);
-  border: none;
-  padding: 0;
-  margin-bottom: 15px;
+  color: var(--accent-yellow) !important;
+  border: none !important;
+  padding: 0 !important;
+  margin-bottom: 15px !important;
 }
 
 .final-cta p {
-  font-size: 1.05em;
-  margin-bottom: 25px;
+  font-size: clamp(0.95rem, 2vw, 1.05rem) !important;
+  margin-bottom: 25px !important;
 }
 
 .cta-botoes-container {
@@ -387,88 +445,148 @@ nav a.nav-link:hover, nav a.nav-link.active {
   margin-top: 25px;
 }
 
-/* Otimização Responsiva */
-@media (max-width: 900px) {
+/* Mobile - até 640px */
+@media (max-width: 640px) {
+  .app {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .sidebar {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 20px;
+  }
+  
+  .main-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .nav-link {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    justify-content: center;
+  }
+  
+  .content {
+    padding: 16px;
+  }
+  
+  .card {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .servicos-lista {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .gallery img {
+    height: 200px;
+  }
+}
+
+/* Tablet - 641px a 1024px */
+@media (min-width: 641px) and (max-width: 1024px) {
   .app {
     flex-direction: column;
   }
   
   .sidebar {
     width: 100%;
-    min-width: 100%; 
-    position: static;
+    max-width: 100%;
     height: auto;
-    overflow-y: visible;
-    padding: 20px;
+    position: static;
     border-right: none;
     border-bottom: 1px solid var(--border-subtle);
-  }
-  
-  .content {
-    padding: 20px;
-    max-width: 100%; 
-  }
-  
-  .hero .header, .hero .body {
-    padding: 25px; 
-  }
-  
-  .selo-urgencia {
-    font-size: 0.9em;
-    padding: 12px 18px;
-    bottom: 20px;
-    right: 20px;
-  }
-  
-  .logo-fallback {
-    max-width: 180px;
-    height: 180px;
-    font-size: 60px;
-  }
-  
-  .card {
     padding: 25px;
-    margin-bottom: 25px;
-  }
-}
-
-@media (max-width: 480px) {
-  .content {
-    padding: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: start;
   }
   
-  .card {
-    padding: 18px;
-    margin-bottom: 20px;
+  .brand {
+    margin-bottom: 0;
   }
   
-  .gallery {
-    grid-template-columns: 1fr;
+  .main-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  
+  .contato-rapido {
+    margin-top: 0;
+    grid-column: 2;
   }
   
   .servicos-lista {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   
-  h2 {
-    font-size: 1.4em;
-    padding-bottom: 8px;
-    margin-bottom: 15px;
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop grande - acima de 1024px */
+@media (min-width: 1025px) {
+  .app {
+    flex-direction: row;
   }
   
-  .button-large {
-    font-size: 1em;
-    padding: 12px 24px;
+  .sidebar {
+    flex-shrink: 0;
   }
   
-  .selo-urgencia {
-    font-size: 0.8em;
-    padding: 10px 14px;
-    bottom: 15px;
-    right: 15px;
+  .servicos-lista {
+    grid-template-columns: repeat(4, 1fr);
   }
   
-  .hero .header, .hero .body {
-    padding: 18px;
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Impressão */
+@media print {
+  .sidebar {
+    display: none;
+  }
+  
+  .content {
+    padding: 0;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* Suporte para notch (iPhone X+) */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
   }
 }

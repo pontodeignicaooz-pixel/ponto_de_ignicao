@@ -2,13 +2,15 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5" />
   <title>Ponto de Ignição — Urgência e Modernização Residencial</title>
   
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23041430' width='100' height='100'/><text x='50' y='65' font-size='50' fill='%23FFD500' text-anchor='middle' font-weight='bold'>⚡</text></svg>" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%23041430' width='180' height='180'/><text x='90' y='120' font-size='100' fill='%23FFD500' text-anchor='middle' font-weight='bold'>⚡</text></svg>">
   
   <meta name="description" content="Ponto de Ignição: Reparos elétricos urgentes, automação residencial e modernização de fiação em casas antigas em Osasco e região.">
+  <meta name="theme-color" content="#041430">
   <meta property="og:title" content="Ponto de Ignição — Soluções Elétricas Urgentes">
   <meta property="og:description" content="Ficou sem energia? Curto-circuito? Atendimento urgente. Também modernizamos sua casa antiga com automação.">
   <meta property="og:image" content="imagens/logo.png">
@@ -24,7 +26,7 @@
         <p class="brand-sub">Soluções & Automação</p>
       </div>
       
-      <nav aria-label="Menu Principal">
+      <nav aria-label="Menu Principal" class="main-nav">
         <a href="#sobre" class="nav-link active">Sobre a Empresa</a>
         <a href="#servicos" class="nav-link">Nossos Serviços</a>
         <a href="#portfolio" class="nav-link">Trabalhos Realizados</a>
@@ -36,7 +38,7 @@
         <p>Atendemos urgências e realizamos visitas técnicas em Osasco e região.</p>
         
         <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="button button-whatsapp" aria-label="Chamar no WhatsApp">
-          Chamar no WhatsApp
+          <span class="icon-wa">💬</span> Chamar no WhatsApp
         </a>
       </div>
     </aside>
@@ -44,14 +46,15 @@
     <main class="content">
       
       <section id="sobre" class="card hero">
-        <img class="cover" src="imagens/capa-eletrica.jpg" alt="Instalações Elétricas Ponto de Ignição" loading="lazy" onerror="this.src='https://via.placeholder.com/1000x350?text=Imagem+de+Capa+(Banner)'">
+        <img class="cover" src="imagens/capa-eletrica.jpg" alt="Instalações Elétricas Ponto de Ignição" loading="eager" onerror="this.src='https://via.placeholder.com/1200x400?text=Eletrica'">
         
         <div class="selo-urgencia">
-          Reparos<br>Urgentes
+          <span class="icon-seal">⚡</span>
+          <div>Reparos<br>Urgentes</div>
         </div>
 
         <div class="header">
-          <h2>Seu problema elétrico resolvido com urgência e segurança.</h2>
+          <h1>Seu problema elétrico resolvido com urgência e segurança.</h1>
         </div>
         
         <div class="body">
@@ -62,27 +65,27 @@
 
       <section id="servicos" class="card card-servicos">
         <h2>Nossos Serviços</h2>
-        <p>Soluções completas, da emergência à modernização.</p>
+        <p class="subtitle">Soluções completas, da emergência à modernização.</p>
         
         <div class="servicos-lista">
           <div class="servico-item item-urgencia">
-            <span class="icon-raio" aria-hidden="true">⚡</span>
-            <h4>Atendimento de Emergência 24h</h4>
+            <div class="icon-container">⚡</div>
+            <h3>Atendimento de Emergência 24h</h3>
             <p>Ficou no escuro? Disjuntor caindo toda hora? Atendemos chamados urgentes para neutralizar falhas imediatamente.</p>
           </div>
           <div class="servico-item">
-            <span class="icon-smart" aria-hidden="true">💡</span>
-            <h4>Automação Residencial (Smart Home)</h4>
+            <div class="icon-container">💡</div>
+            <h3>Automação Residencial (Smart Home)</h3>
             <p>Transforme sua casa antiga. Instalação de interruptores inteligentes, assistentes virtuais e iluminação automatizada.</p>
           </div>
           <div class="servico-item">
-            <span class="icon-reparo" aria-hidden="true">🔧</span>
-            <h4>Modernização de Casas Antigas</h4>
+            <div class="icon-container">🔧</div>
+            <h3>Modernização de Casas Antigas</h3>
             <p>Substituição de fiação antiga e fora do padrão, troca de tomadas velhas por NBR 14136 e adequação de quadros de força.</p>
           </div>
           <div class="servico-item">
-            <span class="icon-pequeno" aria-hidden="true">⚙️</span>
-            <h4>Pequenos Reparos e Soluções</h4>
+            <div class="icon-container">⚙️</div>
+            <h3>Pequenos Reparos e Soluções</h3>
             <p>Instalação de chuveiros, lustres, ventiladores de teto e troca de resistências com agilidade.</p>
           </div>
         </div>
@@ -90,26 +93,26 @@
 
       <section id="portfolio" class="card">
         <h2>Trabalhos Realizados</h2>
-        <p>Veja o antes e depois da modernização em residências na região.</p>
+        <p class="subtitle">Veja o antes e depois da modernização em residências na região.</p>
         
         <div class="gallery">
           <figure>
-            <img src="imagens/trabalho1.jpg" alt="Organização de Quadro de Força" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Foto+Trabalho+1'">
-            <figcaption>Adequação do Quadro de Força (antes fusível, depois disjuntor)</figcaption>
+            <img src="imagens/trabalho1.jpg" alt="Organização de Quadro de Força" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Quadro'">
+            <figcaption>Adequação do Quadro de Força</figcaption>
           </figure>
         
           <figure>
-            <img src="imagens/trabalho2.jpg" alt="Automação de Iluminação" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Foto+Trabalho+2'">
-            <figcaption>Automação de Iluminação Smart</figcaption>
+            <img src="imagens/trabalho2.jpg" alt="Automação de Iluminação" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Ilumina'">
+            <figcaption>Automação de Iluminação</figcaption>
           </figure>
         
           <figure>
-            <img src="imagens/trabalho3.jpg" alt="Troca de Fiação em Casa Antiga" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Foto+Trabalho+3'">
-            <figcaption>Troca de Fiação Perigosa Exposta</figcaption>
+            <img src="imagens/trabalho3.jpg" alt="Troca de Fiação em Casa Antiga" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Fiacao'">
+            <figcaption>Troca de Fiação Segura</figcaption>
           </figure>
         
           <figure>
-            <img src="imagens/trabalho4.jpg" alt="Instalação de Chuveiro" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Foto+Trabalho+4'">
+            <img src="imagens/trabalho4.jpg" alt="Instalação de Chuveiro" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Reparo'">
             <figcaption>Reparos Rápidos e Seguros</figcaption>
           </figure>
         </div>
@@ -119,8 +122,8 @@
         <h2>Não arrisque a segurança de sua família.</h2>
         <p>Uma instalação elétrica antiga é um incêndio esperando para acontecer. Faça um orçamento gratuito e garanta paz de espírito.</p>
         <div class="cta-botoes-container">
-          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="button button-cta button-large" aria-label="Agendar Atendimento de Urgência no WhatsApp">
-            Agendar Atendimento de Urgência
+          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="button button-cta button-large" aria-label="Agendar Atendimento">
+            <span class="icon-cta">📞</span> Agendar Agora
           </a>
         </div>
       </section>
@@ -129,7 +132,27 @@
   </div>
 
   <script type="text/javascript">
+    // Detecção de navegação ativa
     const navLinks = document.querySelectorAll('nav a.nav-link');
+    const sections = document.querySelectorAll('main > section');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+          link.classList.add('active');
+        }
+      });
+    });
     
     navLinks.forEach(link => {
       link.addEventListener('click', function(e) {
@@ -144,7 +167,7 @@
         const href = this.getAttribute('href');
         if (href !== '#' && document.querySelector(href)) {
           e.preventDefault();
-          document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+          document.querySelector(href).scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
