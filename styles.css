@@ -1,12 +1,15 @@
-/* Paleta de Cores extraída da logo "Ponto de Ignição" */
+/* Paleta de Cores suavizada extraída da logo "Ponto de Ignição" */
 :root {
-  --bg-gradient-start: #041430; /* Azul Marinho Profundo da Logo */
-  --bg-gradient-end: #072754;   /* Azul Royal do preenchimento da Logo */
-  --card-bg: #0b2f61;           /* Azul médio para destacar os blocos internos */
-  --accent-yellow: #FFD500;     /* Amarelo Dourado do Raio */
-  --accent-orange: #FF4500;     /* Laranja/Vermelho do círculo inferior (Urgência) */
-  --text-white: #ffffff;        /* Branco para contraste perfeito de leitura */
-  --text-grey: #b5c7de;         /* Azul acinzentado claro para textos secundários */
+  --bg-gradient-start: #041430; /* Azul Marinho Profundo */
+  --bg-gradient-end: #0d2855;   /* Azul Royal mais suave */
+  --card-bg: #0d3a6b;           /* Azul médio suavizado */
+  --card-bg-hover: #1a4a7f;     /* Azul claro para hover */
+  --accent-yellow: #FFD500;     /* Amarelo Dourado */
+  --accent-orange: #E67E22;     /* Laranja suave (era #FF4500) */
+  --accent-orange-light: #F39C12; /* Laranja claro para variações */
+  --text-white: #ffffff;        /* Branco */
+  --text-grey: #a8b8cc;         /* Cinza azulado suave */
+  --border-subtle: rgba(255, 213, 0, 0.08);
 }
 
 /* Configurações Gerais */
@@ -18,14 +21,14 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
   background-attachment: fixed;
   color: var(--text-white);
   line-height: 1.6;
 }
 
 h1, h2, h3, h4 {
-  color: var(--accent-yellow); /* Amarelo da logo guia o olhar do cliente */
+  color: var(--accent-yellow);
   margin-top: 0;
 }
 
@@ -51,15 +54,15 @@ p {
 /* Menu Lateral Esquerdo (Sidebar) */
 .sidebar {
   width: 300px;
-  background-color: rgba(4, 20, 48, 0.95);
+  background: linear-gradient(180deg, rgba(4, 20, 48, 0.98) 0%, rgba(13, 42, 85, 0.95) 100%);
   padding: 25px;
-  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
   position: sticky;
   top: 0;
   height: 100vh;
   overflow-y: auto;
   box-sizing: border-box;
-  border-right: 1px solid rgba(255, 213, 0, 0.1);
+  border-right: 1px solid var(--border-subtle);
 }
 
 .brand {
@@ -72,13 +75,14 @@ p {
   max-width: 220px;
   height: auto;
   object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(255, 213, 0, 0.15));
 }
 
 .logo-fallback {
   width: 100%;
   max-width: 220px;
   height: 220px;
-  background: linear-gradient(135deg, #041430, #072754);
+  background: linear-gradient(135deg, #041430 0%, #0d3a6b 100%);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -86,13 +90,16 @@ p {
   font-size: 80px;
   color: #FFD500;
   margin: 0 auto 15px;
+  box-shadow: 0 4px 15px rgba(255, 213, 0, 0.1);
+  border: 1px solid var(--border-subtle);
 }
 
 .brand-sub {
   font-size: 0.9em;
-  color: var(--accent-yellow);
+  color: var(--accent-orange-light);
   font-weight: 600;
   margin: 10px 0 0 0;
+  letter-spacing: 0.5px;
 }
 
 /* Links de Navegação */
@@ -105,15 +112,15 @@ nav a.nav-link {
   padding: 12px 18px;
   text-decoration: none;
   color: var(--text-white);
-  border-radius: 6px;
-  margin-bottom: 10px;
-  font-weight: bold;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-weight: 600;
   transition: all 0.3s ease;
   border-left: 3px solid transparent;
 }
 
 nav a.nav-link:hover, nav a.nav-link.active {
-  background-color: rgba(255, 69, 0, 0.15);
+  background-color: rgba(230, 126, 34, 0.12);
   color: var(--accent-yellow);
   border-left: 3px solid var(--accent-orange);
 }
@@ -122,22 +129,25 @@ nav a.nav-link:hover, nav a.nav-link.active {
 .contato-rapido {
   margin-top: 40px;
   padding: 20px 15px;
-  background-color: rgba(255, 255, 255, 0.03);
-  border-radius: 8px;
-  border: 1px dashed rgba(255, 213, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
   text-align: center;
 }
 
 .contato-rapido h3 {
   font-size: 1.1em;
-  color: var(--accent-orange);
-  margin-bottom: 8px;
+  color: var(--accent-orange-light);
+  margin: 0 0 8px 0;
   text-transform: uppercase;
+  font-size: 0.95em;
+  letter-spacing: 1px;
 }
 
 .contato-rapido p {
   font-size: 0.85em;
-  margin-bottom: 15px;
+  margin: 0 0 15px 0;
+  color: var(--text-grey);
 }
 
 /* Área de Conteúdo Central */
@@ -150,12 +160,18 @@ nav a.nav-link:hover, nav a.nav-link.active {
 }
 
 .card {
-  background-color: var(--card-bg);
+  background: linear-gradient(135deg, rgba(13, 42, 85, 0.6) 0%, rgba(13, 58, 107, 0.4) 100%);
   border-radius: 12px;
   padding: 35px;
   margin-bottom: 35px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, rgba(13, 42, 85, 0.7) 0%, rgba(13, 58, 107, 0.5) 100%);
 }
 
 /* Banner Principal */
@@ -163,6 +179,7 @@ nav a.nav-link:hover, nav a.nav-link.active {
   position: relative;
   overflow: hidden;
   padding: 0;
+  border-radius: 12px;
 }
 
 .hero .cover {
@@ -174,22 +191,28 @@ nav a.nav-link:hover, nav a.nav-link.active {
 
 .selo-urgencia {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: var(--accent-orange);
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);
   color: var(--text-white);
-  padding: 12px 18px;
-  border-radius: 8px;
+  padding: 14px 22px;
+  border-radius: 10px;
   font-weight: 700;
-  font-size: 0.9em;
+  font-size: 0.95em;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.5);
+  box-shadow: 0 6px 20px rgba(230, 126, 34, 0.25);
   z-index: 2;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
 }
 
 .hero .header, .hero .body {
-  padding: 30px;
+  padding: 35px;
+  background: linear-gradient(135deg, rgba(13, 42, 85, 0.7) 0%, rgba(13, 58, 107, 0.5) 100%);
+}
+
+.hero .header h2 {
+  margin-bottom: 0;
 }
 
 /* Grid de Exibição de Serviços */
@@ -201,21 +224,24 @@ nav a.nav-link:hover, nav a.nav-link.active {
 }
 
 .servico-item {
-  background-color: rgba(4, 14, 48, 0.5);
-  padding: 22px;
-  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(13, 42, 85, 0.5) 0%, rgba(13, 58, 107, 0.3) 100%);
+  padding: 24px;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
   border-top: 4px solid var(--accent-yellow);
   position: relative;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .servico-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(255, 213, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(255, 213, 0, 0.12);
+  border-top: 4px solid var(--accent-orange);
+  background: linear-gradient(135deg, rgba(13, 42, 85, 0.6) 0%, rgba(13, 58, 107, 0.4) 100%);
 }
 
 .servico-item h4 {
-  margin-bottom: 10px;
+  margin: 12px 0 8px 0;
   color: var(--text-white);
   font-size: 1.1em;
 }
@@ -229,19 +255,21 @@ nav a.nav-link:hover, nav a.nav-link.active {
 .icon-smart,
 .icon-reparo,
 .icon-pequeno {
-  font-size: 2em;
+  font-size: 2.2em;
   margin-right: 8px;
   display: inline-block;
+  filter: drop-shadow(0 2px 4px rgba(255, 213, 0, 0.1));
 }
 
-/* Estilo crítico para o box focado em Urgência */
+/* Estilo para o box focado em Urgência */
 .item-urgencia {
   border-top: 4px solid var(--accent-orange);
-  background-color: rgba(255, 69, 0, 0.05);
+  background: linear-gradient(135deg, rgba(230, 126, 34, 0.08) 0%, rgba(243, 156, 18, 0.04) 100%);
 }
 
 .item-urgencia:hover {
-  box-shadow: 0 8px 20px rgba(255, 69, 0, 0.2);
+  box-shadow: 0 12px 28px rgba(230, 126, 34, 0.15);
+  background: linear-gradient(135deg, rgba(230, 126, 34, 0.12) 0%, rgba(243, 156, 18, 0.08) 100%);
 }
 
 /* Portfólio / Galeria de Fotos */
@@ -255,23 +283,24 @@ nav a.nav-link:hover, nav a.nav-link.active {
 .gallery figure {
   margin: 0;
   text-align: center;
-  background: rgba(4, 14, 48, 0.4);
+  background: linear-gradient(135deg, rgba(13, 42, 85, 0.4) 0%, rgba(13, 58, 107, 0.2) 100%);
   padding: 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  transition: all 0.3s ease;
 }
 
 .gallery figure:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(255, 213, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(255, 213, 0, 0.1);
+  border-color: rgba(230, 126, 34, 0.3);
 }
 
 .gallery img {
   width: 100%;
   height: 190px;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .gallery figcaption {
@@ -286,22 +315,22 @@ nav a.nav-link:hover, nav a.nav-link.active {
   display: inline-block;
   padding: 12px 24px;
   text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
   text-align: center;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   border: none;
   font-size: 1em;
 }
 
 .button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 .button-cta {
-  background-color: var(--accent-orange);
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);
   color: var(--text-white);
 }
 
@@ -310,38 +339,45 @@ nav a.nav-link:hover, nav a.nav-link.active {
   padding: 16px 32px;
   width: 100%;
   box-sizing: border-box;
-  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
+  box-shadow: 0 6px 18px rgba(230, 126, 34, 0.3);
 }
 
 .button-large:hover {
-  background-color: #ff5714;
-  box-shadow: 0 6px 20px rgba(255, 69, 0, 0.6);
+  background: linear-gradient(135deg, #d66b1b 0%, #e68035 100%);
+  box-shadow: 0 8px 24px rgba(230, 126, 34, 0.4);
 }
 
 .button-whatsapp {
-  background-color: #25D366;
+  background: linear-gradient(135deg, #25D366 0%, #20BA58 100%);
   color: white;
   width: 100%;
   box-sizing: border-box;
-  font-weight: bold;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
 }
 
 .button-whatsapp:hover {
-  background-color: #1ead52;
-  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+  background: linear-gradient(135deg, #20ba58 0%, #1aa34a 100%);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
 }
 
 /* Card Final de Fechamento */
 .final-cta {
   text-align: center;
-  background: linear-gradient(135deg, #041430, #000000);
+  background: linear-gradient(135deg, rgba(4, 20, 48, 0.8) 0%, rgba(13, 42, 85, 0.6) 100%);
   border: 2px solid var(--accent-orange);
 }
 
 .final-cta h2 {
-  color: var(--accent-orange);
+  color: var(--accent-yellow);
   border: none;
   padding: 0;
+  margin-bottom: 15px;
+}
+
+.final-cta p {
+  font-size: 1.05em;
+  margin-bottom: 25px;
 }
 
 .cta-botoes-container {
@@ -351,7 +387,7 @@ nav a.nav-link:hover, nav a.nav-link.active {
   margin-top: 25px;
 }
 
-/* Otimização Responsiva Inteligente para Dispositivos Móveis */
+/* Otimização Responsiva */
 @media (max-width: 900px) {
   .app {
     flex-direction: column;
@@ -365,7 +401,7 @@ nav a.nav-link:hover, nav a.nav-link.active {
     overflow-y: visible;
     padding: 20px;
     border-right: none;
-    border-bottom: 2px solid var(--accent-orange);
+    border-bottom: 1px solid var(--border-subtle);
   }
   
   .content {
@@ -374,20 +410,25 @@ nav a.nav-link:hover, nav a.nav-link.active {
   }
   
   .hero .header, .hero .body {
-    padding: 20px; 
+    padding: 25px; 
   }
   
   .selo-urgencia {
-    font-size: 0.8em;
-    padding: 8px 12px;
-    top: 15px;
-    right: 15px;
+    font-size: 0.9em;
+    padding: 12px 18px;
+    bottom: 20px;
+    right: 20px;
   }
   
   .logo-fallback {
     max-width: 180px;
     height: 180px;
     font-size: 60px;
+  }
+  
+  .card {
+    padding: 25px;
+    margin-bottom: 25px;
   }
 }
 
@@ -397,7 +438,8 @@ nav a.nav-link:hover, nav a.nav-link.active {
   }
   
   .card {
-    padding: 20px;
+    padding: 18px;
+    margin-bottom: 20px;
   }
   
   .gallery {
@@ -410,10 +452,23 @@ nav a.nav-link:hover, nav a.nav-link.active {
   
   h2 {
     font-size: 1.4em;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
   }
   
   .button-large {
     font-size: 1em;
     padding: 12px 24px;
+  }
+  
+  .selo-urgencia {
+    font-size: 0.8em;
+    padding: 10px 14px;
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .hero .header, .hero .body {
+    padding: 18px;
   }
 }
