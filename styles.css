@@ -2,18 +2,19 @@
   box-sizing: border-box;
 }
 
-/* Paleta de Cores Moderna, Limpa e Confortável */
+/* Paleta de Cores Suave, Tecnológica e Visível */
 :root {
-  --bg-main: #f4f7f9;
-  --bg-sidebar: #ffffff;
-  --card-bg: #ffffff;
-  --text-primary: #1e293b;
-  --text-secondary: #475569;
+  --bg-main: #eef4f8;
+  --bg-sidebar: rgba(255, 255, 255, 0.92);
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
   --text-light: #64748b;
   --accent-teal: #4db6ac;
   --accent-teal-dark: #3b8b83;
-  --accent-blue: #0f172a;
-  --border-subtle: #e2e8f0;
+  --accent-blue: #021235;
+  --border-subtle: #cbd5e1;
+  --circuit-color: rgba(77, 144, 254, 0.15); /* Cor das linhas de circuito do fundo */
   --transition: all 0.25s ease-in-out;
 }
 
@@ -34,14 +35,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   will-change: scroll-position;
 
-  /* Efeito de Circuito/Grade Tecnológica em CSS Puro (Sem necessidade de arquivo de imagem) */
-  background-color: #f4f7f9;
+  /* --- LINHAS DE CIRCUITO INTEGRADO EM CSS PURO (BEM VISÍVEIS) --- */
+  background-color: var(--bg-main);
   background-image: 
-    radial-gradient(var(--border-subtle) 1px, transparent 0),
-    linear-gradient(to right, rgba(77, 182, 172, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(77, 182, 172, 0.03) 1px, transparent 1px);
-  background-size: 24px 24px, 48px 48px, 48px 48px;
-  background-position: 0 0, 0 0, 0 0;
+    linear-gradient(90deg, var(--circuit-color) 1px, transparent 1px),
+    linear-gradient(var(--circuit-color) 1px, transparent 1px),
+    linear-gradient(45deg, transparent 45%, var(--circuit-color) 45%, var(--circuit-color) 55%, transparent 55%),
+    linear-gradient(-45deg, transparent 45%, var(--circuit-color) 45%, var(--circuit-color) 55%, transparent 55%);
+  background-size: 80px 80px, 80px 80px, 80px 80px, 80px 80px;
+  background-position: 0 0, 0 0, 40px 40px, 40px 40px;
   background-attachment: fixed;
 }
 
@@ -89,13 +91,13 @@ p {
   margin: 0 auto;
 }
 
-/* Sidebar Limpa e Clara */
+/* Sidebar com Logo Ampliado e Nome no Topo */
 .sidebar {
   width: 100%;
-  max-width: 300px;
+  max-width: 340px; /* Largura levemente aumentada para acomodar o logo maior */
   background: var(--bg-sidebar);
-  padding: clamp(20px, 4vw, 30px);
-  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.04);
+  padding: 30px 20px;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.06);
   position: sticky;
   top: 0;
   height: 100vh;
@@ -103,38 +105,41 @@ p {
   border-right: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
+  backdrop-filter: blur(5px); /* Efeito de vidro sutil */
   contain: layout style paint;
 }
 
 .brand {
   text-align: center;
-  margin-bottom: clamp(25px, 5vw, 40px);
+  margin-bottom: 35px;
   flex-shrink: 0;
 }
 
+/* Ajuste para o LOGO aparecer bem grande no topo */
 .logo-img {
   width: 100%;
-  max-width: 170px;
+  max-width: 260px; /* Logo consideravelmente maior */
   height: auto;
-  aspect-ratio: 1;
   object-fit: contain;
+  margin: 0 auto;
+  display: block;
 }
 
 .brand-sub {
   font-size: 0.8rem !important;
   color: var(--text-light);
   font-weight: 600;
-  margin: 10px 0 0 0 !important;
+  margin: 12px 0 0 0 !important;
   letter-spacing: 0.8px;
   text-transform: uppercase;
 }
 
-/* Navegação Suave */
+/* Navegação */
 .main-nav {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-bottom: clamp(20px, 5vw, 30px);
+  margin-bottom: 30px;
   flex-shrink: 0;
 }
 
@@ -145,34 +150,34 @@ p {
   text-decoration: none;
   color: var(--text-secondary);
   border-radius: 8px;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.95rem;
   transition: var(--transition);
   position: relative;
-  will-change: background-color, transform;
 }
 
 .nav-link:hover {
-  background-color: #f1f5f9;
+  background-color: rgba(77, 182, 172, 0.1);
   color: var(--accent-blue);
   transform: translateX(2px);
 }
 
 .nav-link.active {
-  background-color: #e2e8f0;
-  color: var(--accent-blue);
+  background-color: var(--accent-blue);
+  color: #ffffff;
   font-weight: 600;
 }
 
-/* Caixa de Atendimento Rápido Minimalista */
+/* Caixa de Atendimento Rápido */
 .contato-rapido {
   margin-top: auto;
   padding: 16px;
-  background-color: #f8fafc;
+  background-color: #ffffff;
   border-radius: 10px;
   border: 1px solid var(--border-subtle);
   text-align: center;
   flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
 }
 
 .contato-rapido h3 {
@@ -192,5 +197,4 @@ p {
 /* Content Area */
 .content {
   flex: 1;
-  padding: clamp(20px, 4vw, 40px);
-  overflow
+  padding
