@@ -2,20 +2,20 @@
   box-sizing: border-box;
 }
 
-/* Paleta de Cores Suave, Tecnológica e Visível */
+/* Paleta de Cores de Alta Tecnologia, Conforto e Contraste */
 :root {
-  --bg-main: #eef4f8;
-  --bg-sidebar: rgba(255, 255, 255, 0.92);
-  --card-bg: rgba(255, 255, 255, 0.95);
+  --bg-main: #f0f4f8;
+  --bg-sidebar: #ffffff;
+  --card-bg: #ffffff;
   --text-primary: #0f172a;
   --text-secondary: #334155;
   --text-light: #64748b;
   --accent-teal: #4db6ac;
   --accent-teal-dark: #3b8b83;
   --accent-blue: #021235;
-  --border-subtle: #cbd5e1;
-  --circuit-color: rgba(77, 144, 254, 0.15); /* Cor das linhas de circuito do fundo */
-  --transition: all 0.25s ease-in-out;
+  --border-subtle: #e2e8f0;
+  --circuit-line: #cbdceb; /* Cor das trilhas de circuito */
+  --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Configurações Base */
@@ -35,15 +35,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   will-change: scroll-position;
 
-  /* --- LINHAS DE CIRCUITO INTEGRADO EM CSS PURO (BEM VISÍVEIS) --- */
+  /* --- CIRCUITO ELÉTRICO TÉCNICO E VISÍVEL EM CSS PURO --- */
   background-color: var(--bg-main);
   background-image: 
-    linear-gradient(90deg, var(--circuit-color) 1px, transparent 1px),
-    linear-gradient(var(--circuit-color) 1px, transparent 1px),
-    linear-gradient(45deg, transparent 45%, var(--circuit-color) 45%, var(--circuit-color) 55%, transparent 55%),
-    linear-gradient(-45deg, transparent 45%, var(--circuit-color) 45%, var(--circuit-color) 55%, transparent 55%);
-  background-size: 80px 80px, 80px 80px, 80px 80px, 80px 80px;
-  background-position: 0 0, 0 0, 40px 40px, 40px 40px;
+    linear-gradient(90deg, var(--circuit-line) 1px, transparent 1px),
+    linear-gradient(var(--circuit-line) 1px, transparent 1px),
+    radial-gradient(var(--circuit-line) 3px, transparent 4px),
+    linear-gradient(45deg, transparent 46%, var(--circuit-line) 46%, var(--circuit-line) 54%, transparent 54%);
+  background-size: 120px 120px, 120px 120px, 120px 120px, 120px 120px;
+  background-position: 0 0, 0 0, 60px 60px, 60px 60px;
   background-attachment: fixed;
 }
 
@@ -61,12 +61,14 @@ h1 {
 
 h2 {
   font-size: clamp(1.3rem, 4vw, 1.8rem);
+  border-bottom: 2px solid var(--accent-teal);
   padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 h3 {
-  font-size: clamp(1rem, 3vw, 1.2rem);
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+  color: var(--accent-blue);
 }
 
 p {
@@ -91,13 +93,13 @@ p {
   margin: 0 auto;
 }
 
-/* Sidebar com Logo Ampliado e Nome no Topo */
+/* Sidebar Ajustada para o Logo Ocupar a Parte Superior Inteira */
 .sidebar {
   width: 100%;
-  max-width: 340px; /* Largura levemente aumentada para acomodar o logo maior */
+  max-width: 320px;
   background: var(--bg-sidebar);
-  padding: 30px 20px;
-  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.06);
+  padding: 0 0 30px 0; /* Removido o padding do topo para o logo colar nas bordas */
+  box-shadow: 4px 0 25px rgba(15, 23, 42, 0.08);
   position: sticky;
   top: 0;
   height: 100vh;
@@ -105,42 +107,44 @@ p {
   border-right: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
-  backdrop-filter: blur(5px); /* Efeito de vidro sutil */
-  contain: layout style paint;
+  z-index: 10;
 }
 
+/* Container do Logo - Ocupa 100% da largura superior */
 .brand {
   text-align: center;
-  margin-bottom: 35px;
-  flex-shrink: 0;
+  margin-bottom: 30px;
+  width: 100%;
+  background-color: #041430; /* Fundo combinando com a caixa escura do seu logo */
+  padding: 15px 10px;
 }
 
-/* Ajuste para o LOGO aparecer bem grande no topo */
 .logo-img {
   width: 100%;
-  max-width: 260px; /* Logo consideravelmente maior */
+  max-width: 100%; /* Ocupa todo o espaço disponível */
   height: auto;
   object-fit: contain;
-  margin: 0 auto;
   display: block;
+  margin: 0 auto;
 }
 
 .brand-sub {
   font-size: 0.8rem !important;
-  color: var(--text-light);
+  color: #ffffff !important;
   font-weight: 600;
-  margin: 12px 0 0 0 !important;
-  letter-spacing: 0.8px;
+  margin: 10px 0 0 0 !important;
+  letter-spacing: 1px;
   text-transform: uppercase;
+  opacity: 0.9;
 }
 
-/* Navegação */
+/* Links de Navegação com espaçamento lateral na Sidebar */
 .main-nav {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   margin-bottom: 30px;
-  flex-shrink: 0;
+  padding: 0 20px;
 }
 
 .nav-link {
@@ -153,48 +157,276 @@ p {
   font-weight: 600;
   font-size: 0.95rem;
   transition: var(--transition);
-  position: relative;
 }
 
 .nav-link:hover {
-  background-color: rgba(77, 182, 172, 0.1);
+  background-color: #f1f5f9;
   color: var(--accent-blue);
-  transform: translateX(2px);
+  transform: translateX(4px);
 }
 
 .nav-link.active {
   background-color: var(--accent-blue);
   color: #ffffff;
-  font-weight: 600;
 }
 
-/* Caixa de Atendimento Rápido */
+/* Caixa de Contato Lateral */
 .contato-rapido {
   margin-top: auto;
-  padding: 16px;
-  background-color: #ffffff;
-  border-radius: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 20px 15px;
+  background-color: #f8fafc;
+  border-radius: 12px;
   border: 1px solid var(--border-subtle);
   text-align: center;
-  flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
 }
 
 .contato-rapido h3 {
-  font-size: 0.85rem !important;
+  font-size: 0.9rem !important;
   color: var(--accent-teal-dark);
   margin: 0 0 6px 0 !important;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.contato-rapido p {
-  font-size: 0.8rem !important;
-  margin: 0 0 12px 0 !important;
-  color: var(--text-light);
-}
-
-/* Content Area */
+/* Área de Conteúdo Central */
 .content {
   flex: 1;
-  padding
+  padding: 40px;
+  max-width: 100%;
+}
+
+/* Cards Destacados - Branco Sólido com Sombras Profissionais */
+.card {
+  background: var(--card-bg) !important;
+  border-radius: 16px;
+  padding: 40px;
+  margin-bottom: 35px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.02);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: 0 20px 35px rgba(15, 23, 42, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Banner de Capa */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 0 !important;
+}
+
+.hero .cover {
+  width: 100%;
+  height: clamp(240px, 45vw, 400px);
+  object-fit: cover;
+  display: block;
+}
+
+.selo-urgencia {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: var(--accent-teal);
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(77, 182, 172, 0.4);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero .header {
+  padding: 35px 35px 15px 35px;
+}
+
+.hero .body {
+  padding: 0 35px 35px 35px;
+}
+
+/* Grid de Blocos de Serviços */
+.servicos-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 2rem;
+}
+
+.servico-item {
+  background: #ffffff !important;
+  padding: 30px 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.servico-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 20px rgba(77, 182, 172, 0.1);
+  border-color: var(--accent-teal);
+}
+
+.icon-container {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  color: var(--accent-teal);
+}
+
+.item-urgencia {
+  border-left: 5px solid var(--accent-teal);
+  background: #f7fcfb !important;
+}
+
+/* Seção de Portfólio / Galeria */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 24px;
+  margin-top: 2rem;
+}
+
+.gallery figure {
+  margin: 0;
+  text-align: center;
+  background: #ffffff !important;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  transition: var(--transition);
+}
+
+.gallery figure:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+.gallery img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Botões Estilizados */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  font-size: 0.95rem;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.button-cta {
+  background: var(--accent-teal);
+  color: #ffffff;
+}
+
+.button-cta:hover {
+  background: var(--accent-teal-dark);
+}
+
+.button-large {
+  font-size: 1.1rem;
+  padding: 16px 36px;
+  box-shadow: 0 4px 15px rgba(77, 182, 172, 0.3);
+}
+
+.button-whatsapp {
+  background: #25D366;
+  color: white;
+  width: 100%;
+}
+
+/* Seção de Fechamento */
+.final-cta {
+  text-align: center;
+  background: #ffffff !important;
+  border: 1px solid var(--border-subtle);
+  padding: 50px 30px !important;
+}
+
+/* Telas de Celulares */
+@media (max-width: 640px) {
+  .app {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    position: static;
+    padding-bottom: 20px;
+  }
+  .brand {
+    padding: 20px;
+  }
+  .main-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 15px;
+  }
+  .nav-link {
+    font-size: 0.85rem;
+    justify-content: center;
+  }
+  .content {
+    padding: 15px;
+  }
+  .card {
+    padding: 25px 20px;
+  }
+}
+
+/* Telas de Tablets */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .app {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0px;
+    padding-bottom: 20px;
+  }
+  .brand {
+    grid-column: span 2;
+  }
+  .main-nav {
+    grid-column: 1;
+    margin-bottom: 0;
+  }
+  .contato-rapido {
+    grid-column: 2;
+    margin-top: 0;
+  }
+}
