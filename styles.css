@@ -4,16 +4,23 @@
 
 /* Paleta de Cores de Alta Tecnologia, Conforto e Contraste */
 :root {
-  --bg-main: #f0f4f8;
+  --bg-main: #eef5f9; 
   --bg-sidebar: #ffffff;
-  --card-bg: #ffffff;
-  --text-primary: #0f172a;
+  
+  /* Cards com fundo semi-transparente para o circuito aparecer atrás */
+  --card-bg: rgba(255, 255, 255, 0.92); 
+  
+  /* Cores de Texto */
+  --text-primary: #041430;
   --text-secondary: #334155;
   --text-light: #64748b;
-  --accent-teal: #4db6ac;
-  --accent-teal-dark: #3b8b83;
-  --accent-blue: #021235;
-  --border-subtle: #e2e8f0;
+  
+  /* Ajuste das cores da marca de acordo com o logo */
+  --accent-blue: #041430;
+  --accent-yellow: #ffd500; /* Cor de destaque para urgência */
+  --accent-light-blue: #e0e7ff; /* Fundo do menu ativo */
+  
+  --border-subtle: rgba(15, 23, 42, 0.08);
   --circuit-line: #cbdceb; /* Cor das trilhas de circuito */
   --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -55,13 +62,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: clamp(1.5rem, 5vw, 2.4rem);
+  font-size: clamp(1.6rem, 5vw, 2.3rem);
   letter-spacing: -0.5px;
 }
 
 h2 {
   font-size: clamp(1.3rem, 4vw, 1.8rem);
-  border-bottom: 2px solid var(--accent-teal);
+  border-bottom: 2px solid var(--accent-blue);
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
 }
@@ -93,13 +100,13 @@ p {
   margin: 0 auto;
 }
 
-/* Sidebar Ajustada para o Logo Ocupar a Parte Superior Inteira */
+/* Sidebar Ajustada para o Menu Fixo Lateral */
 .sidebar {
   width: 100%;
-  max-width: 320px;
+  max-width: 300px;
   background: var(--bg-sidebar);
-  padding: 0 0 30px 0; /* Removido o padding do topo para o logo colar nas bordas */
-  box-shadow: 4px 0 25px rgba(15, 23, 42, 0.08);
+  padding: 0 0 30px 0; 
+  box-shadow: 4px 0 25px rgba(15, 23, 42, 0.05);
   position: sticky;
   top: 0;
   height: 100vh;
@@ -110,35 +117,41 @@ p {
   z-index: 10;
 }
 
-/* Container do Logo - Ocupa 100% da largura superior */
+/* Container do Logo - Centralizado no topo da barra lateral */
 .brand {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   width: 100%;
-  background-color: #041430; /* Fundo combinando com a caixa escura do seu logo */
-  padding: 15px 10px;
+  padding: 30px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+/* O Logo ocupando cerca de 70% do espaço disponível */
 .logo-img {
-  width: 100%;
-  max-width: 100%; /* Ocupa todo o espaço disponível */
+  width: 70%;
+  max-width: 220px;
   height: auto;
   object-fit: contain;
   display: block;
   margin: 0 auto;
 }
 
+/* Subtítulo abaixo do Logo */
 .brand-sub {
-  font-size: 0.8rem !important;
-  color: #ffffff !important;
+  font-size: 0.75rem !important;
+  color: var(--text-light) !important;
   font-weight: 600;
-  margin: 10px 0 0 0 !important;
-  letter-spacing: 1px;
+  margin: 15px 0 0 0 !important;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  opacity: 0.9;
+  opacity: 0.8;
+  text-align: center;
 }
 
-/* Links de Navegação com espaçamento lateral na Sidebar */
+/* Links de Navegação na Sidebar */
 .main-nav {
   display: flex;
   flex-direction: column;
@@ -153,8 +166,8 @@ p {
   padding: 12px 16px;
   text-decoration: none;
   color: var(--text-secondary);
-  border-radius: 8px;
-  font-weight: 600;
+  border-radius: 6px;
+  font-weight: 500;
   font-size: 0.95rem;
   transition: var(--transition);
 }
@@ -165,9 +178,11 @@ p {
   transform: translateX(4px);
 }
 
+/* Link ativo mudou para azul claro com texto escuro igual à imagem de referência */
 .nav-link.active {
-  background-color: var(--accent-blue);
-  color: #ffffff;
+  background-color: var(--accent-light-blue);
+  color: var(--accent-blue);
+  font-weight: 600;
 }
 
 /* Caixa de Contato Lateral */
@@ -183,8 +198,8 @@ p {
 }
 
 .contato-rapido h3 {
-  font-size: 0.9rem !important;
-  color: var(--accent-teal-dark);
+  font-size: 0.85rem !important;
+  color: #1ebd58;
   margin: 0 0 6px 0 !important;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -194,23 +209,24 @@ p {
 .content {
   flex: 1;
   padding: 40px;
-  max-width: 100%;
+  max-width: 1100px;
 }
 
-/* Cards Destacados - Branco Sólido com Sombras Profissionais */
+/* Cards com Glassmorphism suave (Deixa o circuito de fundo visível) */
 .card {
   background: var(--card-bg) !important;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border-radius: 16px;
   padding: 40px;
   margin-bottom: 35px;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.02);
-  border: 1px solid rgba(15, 23, 42, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   transition: var(--transition);
 }
 
 .card:hover {
-  box-shadow: 0 20px 35px rgba(15, 23, 42, 0.12);
-  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
 }
 
 /* Banner de Capa */
@@ -222,41 +238,44 @@ p {
 
 .hero .cover {
   width: 100%;
-  height: clamp(240px, 45vw, 400px);
+  height: clamp(200px, 35vw, 320px);
   object-fit: cover;
   display: block;
 }
 
+/* Selo de Urgência Amarelo Elétrico no topo direito */
 .selo-urgencia {
   position: absolute;
-  bottom: 20px;
+  top: 20px;
   right: 20px;
-  background: var(--accent-teal);
-  color: #ffffff;
-  padding: 12px 20px;
+  bottom: auto;
+  background: var(--accent-yellow);
+  color: var(--accent-blue);
+  padding: 10px 16px;
   border-radius: 8px;
   font-weight: 700;
-  font-size: 0.9rem;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(77, 182, 172, 0.4);
+  font-size: 0.85rem;
+  line-height: 1.3;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   z-index: 2;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .hero .header {
-  padding: 35px 35px 15px 35px;
+  padding: 40px 40px 15px 40px;
 }
 
 .hero .body {
-  padding: 0 35px 35px 35px;
+  padding: 0 40px 40px 40px;
 }
 
 /* Grid de Blocos de Serviços */
 .servicos-lista {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 24px;
   margin-top: 2rem;
 }
@@ -266,7 +285,7 @@ p {
   padding: 30px 24px;
   border-radius: 12px;
   border: 1px solid var(--border-subtle);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.01);
   transition: var(--transition);
   display: flex;
   flex-direction: column;
@@ -274,26 +293,27 @@ p {
 }
 
 .servico-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 20px rgba(77, 182, 172, 0.1);
-  border-color: var(--accent-teal);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(4, 20, 48, 0.06);
+  border-color: var(--accent-blue);
 }
 
 .icon-container {
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin-bottom: 15px;
-  color: var(--accent-teal);
+  color: var(--accent-blue);
 }
 
+/* Item de urgência com borda amarela de alerta */
 .item-urgencia {
-  border-left: 5px solid var(--accent-teal);
-  background: #f7fcfb !important;
+  border-left: 5px solid var(--accent-yellow);
+  background: #fffdf5 !important;
 }
 
 /* Seção de Portfólio / Galeria */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
   margin-top: 2rem;
 }
@@ -303,22 +323,29 @@ p {
   text-align: center;
   background: #ffffff !important;
   padding: 12px;
-  border-radius: 14px;
+  border-radius: 12px;
   border: 1px solid var(--border-subtle);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.01);
   transition: var(--transition);
 }
 
 .gallery figure:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
 }
 
 .gallery img {
   width: 100%;
-  height: 190px;
+  height: 170px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 6px;
+}
+
+.gallery figcaption {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
 }
 
 /* Botões Estilizados */
@@ -339,22 +366,22 @@ p {
 
 .button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .button-cta {
-  background: var(--accent-teal);
-  color: #ffffff;
+  background: var(--accent-blue);
+  color: var(--accent-yellow);
 }
 
 .button-cta:hover {
-  background: var(--accent-teal-dark);
+  background: #0d254c;
 }
 
 .button-large {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   padding: 16px 36px;
-  box-shadow: 0 4px 15px rgba(77, 182, 172, 0.3);
+  box-shadow: 0 4px 15px rgba(4, 20, 48, 0.2);
 }
 
 .button-whatsapp {
@@ -363,10 +390,14 @@ p {
   width: 100%;
 }
 
+.button-whatsapp:hover {
+  background: #1ebd58;
+}
+
 /* Seção de Fechamento */
 .final-cta {
   text-align: center;
-  background: #ffffff !important;
+  background: var(--card-bg) !important;
   border: 1px solid var(--border-subtle);
   padding: 50px 30px !important;
 }
@@ -384,22 +415,31 @@ p {
     padding-bottom: 20px;
   }
   .brand {
-    padding: 20px;
+    padding: 25px 20px 5px 20px;
   }
   .main-nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0 15px;
+    gap: 6px;
   }
   .nav-link {
     font-size: 0.85rem;
     justify-content: center;
+    padding: 10px;
   }
   .content {
     padding: 15px;
   }
   .card {
     padding: 25px 20px;
+  }
+  .selo-urgencia {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 15px 20px 0 20px;
+    display: inline-flex;
   }
 }
 
