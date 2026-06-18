@@ -2,11 +2,12 @@
   box-sizing: border-box;
 }
 
-/* Paleta de Cores Ajustada */
 :root {
-  --bg-main: #eef5f9; 
+  /* Fundo Escuro Tecnológico Avançado */
+  --bg-main: #020b18; 
   --bg-sidebar: #ffffff;
-  --card-bg: rgba(255, 255, 255, 0.95); 
+  --card-bg: rgba(255, 255, 255, 0.96); 
+  
   --text-primary: #041430;
   --text-secondary: #334155;
   --text-light: #64748b;
@@ -14,11 +15,12 @@
   --accent-yellow: #ffd500; 
   --accent-light-blue: #e0e7ff; 
   --border-subtle: rgba(15, 23, 42, 0.08);
-  --circuit-line: #cbdceb; 
+  
+  /* Linhas de circuito integradas em Ciano Elétrico */
+  --circuit-line: rgba(0, 168, 204, 0.25); 
   --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Configurações Base */
 html {
   scroll-behavior: smooth;
   font-size: 16px;
@@ -32,60 +34,58 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   background-color: var(--bg-main);
+  
+  /* --- CIRCUITO IMPRESSO HIGH-TECH EM CSS PURO --- */
   background-image: 
-    linear-gradient(90deg, var(--circuit-line) 1px, transparent 1px),
-    linear-gradient(var(--circuit-line) 1px, transparent 1px),
-    radial-gradient(var(--circuit-line) 3px, transparent 4px),
-    linear-gradient(45deg, transparent 46%, var(--circuit-line) 46%, var(--circuit-line) 54%, transparent 54%);
-  background-size: 120px 120px, 120px 120px, 120px 120px, 120px 120px;
-  background-position: 0 0, 0 0, 60px 60px, 60px 60px;
+    linear-gradient(90deg, var(--circuit-line) 1.5px, transparent 1.5px),
+    linear-gradient(var(--circuit-line) 1.5px, transparent 1.5px),
+    radial-gradient(var(--circuit-line) 4px, transparent 5px),
+    linear-gradient(45deg, transparent 48%, var(--circuit-line) 48%, var(--circuit-line) 52%, transparent 52%);
+  background-size: 100px 100px, 100px 100px, 100px 100px, 100px 100px;
+  background-position: 0 0, 0 0, 50px 50px, 50px 50px;
   background-attachment: fixed;
 }
 
-/* Estrutura Principal */
 .app {
   display: flex;
   min-height: 100vh;
-  max-width: 1600px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 /* ==========================================
-   SIDEBAR & LOGO (REAJUSTE CRÍTICO)
+   SIDEBAR & LOGO (ESTILO FUSION)
    ========================================== */
 .sidebar {
   width: 100%;
-  max-width: 300px;
+  max-width: 280px;
   background: var(--bg-sidebar);
   padding: 0 0 30px 0; 
-  box-shadow: 4px 0 25px rgba(15, 23, 42, 0.05);
+  box-shadow: 4px 0 25px rgba(0, 0, 0, 0.3);
   position: sticky;
   top: 0;
   height: 100vh;
   overflow-y: auto;
-  border-right: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
   z-index: 10;
+  flex-shrink: 0;
 }
 
-/* Mudamos para azul escuro para envelopar o logo sem criar "caixas" cortadas */
 .brand {
   text-align: center;
   margin-bottom: 25px;
   width: 100%;
   background-color: #041430; 
-  padding: 35px 20px 25px 20px;
+  padding: 40px 20px 25px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-/* Força o preenchimento ideal de 70% a 80% do espaço superior centralizado */
 .logo-img {
   width: 75%;
-  max-width: 200px;
+  max-width: 180px;
   height: auto;
   object-fit: contain;
   display: block;
@@ -93,17 +93,17 @@ body {
 }
 
 .brand-sub {
-  font-size: 0.8rem !important;
+  font-size: 0.75rem !important;
   color: #ffffff !important; 
   font-weight: 600;
-  margin: 12px 0 0 0 !important;
+  margin: 15px 0 0 0 !important;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   opacity: 0.9;
   text-align: center;
 }
 
-/* Navegação */
+/* Menu de Navegação */
 .main-nav {
   display: flex;
   flex-direction: column;
@@ -119,7 +119,7 @@ body {
   text-decoration: none;
   color: var(--text-secondary);
   border-radius: 6px;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.95rem;
   transition: var(--transition);
 }
@@ -132,7 +132,6 @@ body {
 .nav-link.active {
   background-color: var(--accent-light-blue);
   color: var(--accent-blue);
-  font-weight: 600;
 }
 
 .contato-rapido {
@@ -147,74 +146,89 @@ body {
 }
 
 /* ==========================================
-   CONTEÚDO E HERO CARD (BANNER E SELO)
+   CONTEÚDO E NOVO CABEÇALHO SUPERIOR
    ========================================== */
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* O Cabeçalho com o nome centralizado sobre o fundo escuro */
+.main-header {
+  background-color: rgba(4, 20, 48, 0.95);
+  padding: 25px 40px;
+  text-align: center;
+  border-bottom: 2px solid var(--accent-yellow);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.main-header h1 {
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif; /* Estética moderna corporativa */
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 4px;
+  font-weight: 800;
+}
+
 .content {
   flex: 1;
   padding: 40px;
-  max-width: 1100px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 
+/* Cards em Branco Sólido com Leve Transparência */
 .card {
   background: var(--card-bg) !important;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 16px;
+  border-radius: 14px;
   padding: 40px;
   margin-bottom: 35px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  transition: var(--transition);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-/* Ajustes no Card do Topo para a Imagem aparecer */
 .hero {
-  position: relative;
-  overflow: hidden;
-  padding: 0 !important; /* Mantém a imagem colada nas bordas do card */
+  padding-top: 30px !important;
 }
 
-.hero .cover {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  display: block;
+/* Novo container do Selo de Urgência no topo interno do Card */
+.selo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .selo-urgencia {
-  position: absolute;
-  top: 20px;
-  right: 20px;
   background: var(--accent-yellow);
   color: var(--accent-blue);
-  padding: 12px 18px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 0.85rem;
-  line-height: 1.3;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  z-index: 5;
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(255, 213, 0, 0.3);
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
-.hero .header {
-  padding: 40px 40px 15px 40px;
+h2 {
+  font-size: 1.8rem;
+  color: var(--accent-blue);
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
-.hero .body {
-  padding: 0 40px 40px 40px;
-}
-
-/* Títulos e Elementos Internos */
-h1 { font-size: clamp(1.6rem, 5vw, 2.3rem); color: var(--accent-blue); }
-h2 { font-size: clamp(1.3rem, 4vw, 1.8rem); border-bottom: 2px solid var(--accent-blue); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
-
-/* Grid de Serviços e Galeria */
-.servicos-lista, .gallery {
+/* ==========================================
+   GRADE DE SERVIÇOS CRÍTICA (2 EM CIMA, 2 EM BAIXO)
+   ========================================== */
+.servicos-lista {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(2, 1fr); /* Força exatamente 2 colunas */
   gap: 24px;
   margin-top: 2rem;
 }
@@ -224,11 +238,26 @@ h2 { font-size: clamp(1.3rem, 4vw, 1.8rem); border-bottom: 2px solid var(--accen
   padding: 30px 24px;
   border-radius: 12px;
   border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+  display: flex;
+  flex-direction: column;
 }
 
 .item-urgencia {
   border-left: 5px solid var(--accent-yellow);
-  background: #fffdf5 !important;
+  background: #fffdf2 !important;
+}
+
+.icon-container {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+/* Galeria de Fotos */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
 }
 
 .gallery figure {
@@ -246,6 +275,13 @@ h2 { font-size: clamp(1.3rem, 4vw, 1.8rem); border-bottom: 2px solid var(--accen
   border-radius: 6px;
 }
 
+.gallery figcaption {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 /* Botões */
 .button {
   display: inline-flex;
@@ -257,16 +293,28 @@ h2 { font-size: clamp(1.3rem, 4vw, 1.8rem); border-bottom: 2px solid var(--accen
   border-radius: 8px;
   font-weight: 700;
   border: none;
+  cursor: pointer;
 }
 
 .button-whatsapp { background: #25D366; color: white; width: 100%; }
 .button-cta { background: var(--accent-blue); color: var(--accent-yellow); }
 
-/* Responsividade Mobile */
+.final-cta { text-align: center; padding: 50px 30px !important; }
+
+/* ==========================================
+   RESPONSIVIDADE INTELIGENTE
+   ========================================== */
+@media (max-width: 900px) {
+  /* Em tablets ou telas menores, a grade de serviços vira 1 coluna para não espremer o texto */
+  .servicos-lista {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 640px) {
   .app { flex-direction: column; }
   .sidebar { width: 100%; max-width: 100%; height: auto; position: static; }
   .main-nav { display: grid; grid-template-columns: 1fr 1fr; padding: 0 15px; gap: 6px; }
+  .main-header h1 { font-size: 1.8rem; }
   .content { padding: 15px; }
-  .selo-urgencia { position: relative; top: auto; right: auto; margin: 15px 20px; display: inline-flex; }
 }
