@@ -55,9 +55,10 @@ body {
 /* ==========================================
    SIDEBAR & LOGO (ESTILO FUSION)
    ========================================== */
+/* 1. AUMENTAR A LARGURA DA BARRA LATERAL (DE 280px PARA 360px) */
 .sidebar {
   width: 100%;
-  max-width: 280px;
+  max-width: 360px; /* Expandido para dar mais presença ao menu e ao logo */
   background: var(--bg-sidebar);
   padding: 0 0 30px 0; 
   box-shadow: 4px 0 25px rgba(0, 0, 0, 0.3);
@@ -68,19 +69,21 @@ body {
   display: flex;
   flex-direction: column;
   z-index: 10;
-  flex-shrink: 0;
+  flex-shrink: 0; /* Garante que ela não vai espremer se a tela diminuir */
 }
 
+* 3. AJUSTE DO CONTAINER DO LOGO (REMOVENDO PADDINGS LATERAIS) */
 .brand {
   text-align: center;
   margin-bottom: 25px;
   width: 100%;
   background-color: #041430; 
-  padding: 40px 20px 25px 20px;
+  padding: 40px 0px 25px 0px; /* ZERADO os lados para a imagem colar nas bordas da barra */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .logo-img {
