@@ -34,6 +34,7 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   background-color: var(--bg-main);
+  overflow-x: hidden; /* Garante que a página inteira não role para os lados */
   
   /* --- CIRCUITO IMPRESSO HIGH-TECH EM CSS PURO --- */
   background-image: 
@@ -53,11 +54,10 @@ body {
 }
 
 /* ==========================================
-   SIDEBAR & LOGO (ESTILO FUSION)
+   SIDEBAR & LOGO (AJUSTADO)
    ========================================== */
 .sidebar {
-  width: 100%;
-  max-width: 360px; /* Expandido para dar mais presença ao menu e ao logo */
+  width: 300px; /* Reduzido levemente para equilibrar o espaço na tela */
   background: var(--bg-sidebar);
   padding: 0 0 30px 0; 
   box-shadow: 4px 0 25px rgba(0, 0, 0, 0.3);
@@ -68,16 +68,15 @@ body {
   display: flex;
   flex-direction: column;
   z-index: 10;
-  flex-shrink: 0; /* Garante que ela não vai espremer se a tela diminuir */
+  flex-shrink: 0; 
 }
 
-/* AJUSTE DO CONTAINER DO LOGO (REMOVENDO PADDINGS LATERAIS) */
 .brand {
   text-align: center;
   margin-bottom: 25px;
   width: 100%;
   background-color: #041430; 
-  padding: 40px 0px 25px 0px; /* ZERADO os lados para a imagem colar nas bordas da barra */
+  padding: 20px 15px; /* Adicionado um recuo seguro nas laterais */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -86,12 +85,12 @@ body {
 }
 
 .logo-img {
-  width: 100% !important;     /* Força a imagem a ocupar 100% da largura do container */
-  max-width: 100% !important; /* Remove a trava antiga de 180px e permite usar todo o espaço */
+  width: 100%;
+  max-width: 220px; /* Define um limite excelente e seguro para não estourar */
   height: auto;
-  object-fit: cover;          /* Preenche o espaço cortando o excesso das bordas da imagem */
+  object-fit: contain; /* ALTERADO: Preserva as proporções originais do seu logo sem cortar */
   display: block;
-  margin: 0;                  /* Zera qualquer margem restante */
+  margin: 0 auto;
 }
 
 .brand-sub {
@@ -148,17 +147,16 @@ body {
 }
 
 /* ==========================================
-   CONTEÚDO E NOVO CABEÇALHO SUPERIOR
+   CONTEÚDO CENTRALIZADO (CORREÇÃO DE CORTE)
    ========================================== */
 .main-container {
   flex: 1;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  min-width: 0; /* Correção crítica: impede que elementos internos expandam a tela para fora */
+  min-width: 0; /* Correção vital: impede que a área da direita empurre a tela */
 }
 
-/* O Cabeçalho com o nome centralizado sobre o fundo escuro */
 .main-header {
   background-color: rgba(4, 20, 48, 0.95);
   padding: 25px 40px;
@@ -168,7 +166,7 @@ body {
 }
 
 .main-header h1 {
-  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif; /* Estética moderna corporativa */
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
   font-size: 2.5rem;
   color: #ffffff;
   margin: 0;
@@ -184,7 +182,7 @@ body {
   margin: 0 auto;
 }
 
-/* Cards em Branco Sólido com Leve Transparência */
+/* Cards */
 .card {
   background: var(--card-bg) !important;
   border-radius: 14px;
@@ -194,7 +192,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-/* Ajuste específico para escurecer o card de Trabalhos Realizados em 2 tons azuis claros */
+/* Card Trabalhos Realizados - Azul Ligeiramente Mais Escuro e Ajustado */
 #portfolio {
   background: #e2ebf8 !important;
   border: 1px solid rgba(4, 20, 48, 0.15);
@@ -204,7 +202,6 @@ body {
   padding-top: 30px !important;
 }
 
-/* Novo container do Selo de Urgência no topo interno do Card */
 .selo-container {
   display: flex;
   justify-content: center;
@@ -232,12 +229,10 @@ h2 {
   text-align: center;
 }
 
-/* ==========================================
-   GRADE DE SERVIÇOS CRÍTICA (2 EM CIMA, 2 EM BAIXO)
-   ========================================== */
+/* Grade de Serviços */
 .servicos-lista {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Força exatamente 2 colunas */
+  grid-template-columns: repeat(2, 1fr); 
   gap: 24px;
   margin-top: 2rem;
 }
@@ -262,12 +257,12 @@ h2 {
   margin-bottom: 15px;
 }
 
-/* Galeria de Fotos Otimizada */
+/* Galeria de Fotos Totalmente Responsiva */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
-  width: 100%; /* Fixa as imagens dentro do espaço do container central */
+  width: 100%;
 }
 
 .gallery figure {
@@ -312,24 +307,27 @@ h2 {
 .final-cta { text-align: center; padding: 50px 30px !important; }
 
 /* ==========================================
-   RESPONSIVIDADE INTELIGENTE
+   RESPONSIVIDADE
    ========================================== */
 @media (max-width: 1025px) {
-  .main-container {
+  .sidebar {
+    position: static;
+    height: auto;
+    width: 100%;
     max-width: 100%;
+  }
+  .app {
+    flex-direction: column;
   }
 }
 
 @media (max-width: 900px) {
-  /* Em tablets ou telas menores, a grade de serviços vira 1 coluna para não espremer o texto */
   .servicos-lista {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 640px) {
-  .app { flex-direction: column; }
-  .sidebar { width: 100%; max-width: 100%; height: auto; position: static; }
   .main-nav { display: grid; grid-template-columns: 1fr 1fr; padding: 0 15px; gap: 6px; }
   .main-header h1 { font-size: 1.8rem; }
   .content { padding: 15px; }
