@@ -55,7 +55,6 @@ body {
 /* ==========================================
    SIDEBAR & LOGO (ESTILO FUSION)
    ========================================== */
-/* 1. AUMENTAR A LARGURA DA BARRA LATERAL (DE 280px PARA 360px) */
 .sidebar {
   width: 100%;
   max-width: 360px; /* Expandido para dar mais presença ao menu e ao logo */
@@ -72,7 +71,7 @@ body {
   flex-shrink: 0; /* Garante que ela não vai espremer se a tela diminuir */
 }
 
-* 3. AJUSTE DO CONTAINER DO LOGO (REMOVENDO PADDINGS LATERAIS) */
+/* AJUSTE DO CONTAINER DO LOGO (REMOVENDO PADDINGS LATERAIS) */
 .brand {
   text-align: center;
   margin-bottom: 25px;
@@ -156,6 +155,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-width: 0; /* Correção crítica: impede que elementos internos expandam a tela para fora */
 }
 
 /* O Cabeçalho com o nome centralizado sobre o fundo escuro */
@@ -192,6 +192,12 @@ body {
   margin-bottom: 35px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+/* Ajuste específico para escurecer o card de Trabalhos Realizados em 2 tons azuis claros */
+#portfolio {
+  background: #e2ebf8 !important;
+  border: 1px solid rgba(4, 20, 48, 0.15);
 }
 
 .hero {
@@ -256,11 +262,12 @@ h2 {
   margin-bottom: 15px;
 }
 
-/* Galeria de Fotos */
+/* Galeria de Fotos Otimizada */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
+  width: 100%; /* Fixa as imagens dentro do espaço do container central */
 }
 
 .gallery figure {
@@ -307,6 +314,12 @@ h2 {
 /* ==========================================
    RESPONSIVIDADE INTELIGENTE
    ========================================== */
+@media (max-width: 1025px) {
+  .main-container {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 900px) {
   /* Em tablets ou telas menores, a grade de serviços vira 1 coluna para não espremer o texto */
   .servicos-lista {
