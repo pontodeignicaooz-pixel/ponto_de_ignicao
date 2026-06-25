@@ -34,7 +34,6 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   background-color: var(--bg-main);
-  overflow-x: hidden; /* Garante que a página inteira não role para os lados */
   
   /* --- CIRCUITO IMPRESSO HIGH-TECH EM CSS PURO --- */
   background-image: 
@@ -54,12 +53,13 @@ body {
 }
 
 /* ==========================================
-   SIDEBAR & LOGO (AJUSTADO)
+   SIDEBAR & LOGO (RESTAURADO AO ORIGINAL)
    ========================================== */
 .sidebar {
-  width: 300px; /* Reduzido levemente para equilibrar o espaço na tela */
+  width: 100%;
+  max-width: 280px; /* Voltando para os 280px originais */
   background: var(--bg-sidebar);
-  padding: 0 0 30px 0; 
+  padding: 30px 0; 
   box-shadow: 4px 0 25px rgba(0, 0, 0, 0.3);
   position: sticky;
   top: 0;
@@ -73,35 +73,25 @@ body {
 
 .brand {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   width: 100%;
-  background-color: #041430; 
-  padding: 20px 15px; /* Adicionado um recuo seguro nas laterais */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  padding: 0 20px; /* Restaurado o recuo original nas laterais */
 }
 
 .logo-img {
-  width: 100%;
-  max-width: 220px; /* Define um limite excelente e seguro para não estourar */
+  max-width: 180px; /* Restaurado o tamanho padrão original */
   height: auto;
-  object-fit: contain; /* ALTERADO: Preserva as proporções originais do seu logo sem cortar */
   display: block;
   margin: 0 auto;
 }
 
 .brand-sub {
-  font-size: 0.75rem !important;
-  color: #ffffff !important; 
+  font-size: 0.85rem;
+  color: var(--text-light);
   font-weight: 600;
-  margin: 15px 0 0 0 !important;
-  letter-spacing: 1.5px;
+  margin-top: 10px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  opacity: 0.9;
-  text-align: center;
 }
 
 /* Menu de Navegação */
@@ -147,14 +137,14 @@ body {
 }
 
 /* ==========================================
-   CONTEÚDO CENTRALIZADO (CORREÇÃO DE CORTE)
+   CONTEÚDO CENTRALIZADO (CORREÇÃO DE CORTE DAS FOTOS)
    ========================================== */
 .main-container {
   flex: 1;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  min-width: 0; /* Correção vital: impede que a área da direita empurre a tela */
+  min-width: 0; /* Garante que elementos filhos não estoure o layout da direita */
 }
 
 .main-header {
@@ -192,7 +182,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-/* Card Trabalhos Realizados - Azul Ligeiramente Mais Escuro e Ajustado */
+/* Card Trabalhos Realizados - 2 tons mais escuro */
 #portfolio {
   background: #e2ebf8 !important;
   border: 1px solid rgba(4, 20, 48, 0.15);
@@ -257,7 +247,7 @@ h2 {
   margin-bottom: 15px;
 }
 
-/* Galeria de Fotos Totalmente Responsiva */
+/* Galeria de Fotos */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -309,16 +299,11 @@ h2 {
 /* ==========================================
    RESPONSIVIDADE
    ========================================== */
-@media (max-width: 1025px) {
-  .sidebar {
-    position: static;
-    height: auto;
-    width: 100%;
-    max-width: 100%;
-  }
-  .app {
-    flex-direction: column;
-  }
+@media (max-width: 1024px) {
+  .app { flex-direction: column; }
+  .sidebar { width: 100%; max-width: 100%; height: auto; position: static; padding: 20px 0; }
+  .main-nav { display: grid; grid-template-columns: 1fr 1fr; padding: 0 15px; gap: 6px; margin-bottom: 15px; }
+  .contato-rapido { margin: 10px 15px 0 15px; }
 }
 
 @media (max-width: 900px) {
@@ -328,7 +313,6 @@ h2 {
 }
 
 @media (max-width: 640px) {
-  .main-nav { display: grid; grid-template-columns: 1fr 1fr; padding: 0 15px; gap: 6px; }
   .main-header h1 { font-size: 1.8rem; }
   .content { padding: 15px; }
 }
