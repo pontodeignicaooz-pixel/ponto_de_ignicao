@@ -27,14 +27,14 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 18px; 
+  font-size: 16px; /* RETORNADO PARA 16PX: Remove o visual gigante e espalhado no PC */
 }
 
 body {
   margin: 0;
   padding: 0;
   color: var(--text-primary);
-  line-height: 1.6;
+  line-height: 1.5; /* Linhas ligeiramente mais próximas para compactar o texto */
   min-height: 100vh;
   background-color: var(--bg-main);
   
@@ -49,20 +49,20 @@ body {
   background-attachment: fixed;
 }
 
-/* BOTÃO DE MENU SUSPENSO MOBILE (REPOSICIONADO PARA O CANTO DIREITO) */
+/* BOTÃO DE MENU SUSPENSO MOBILE */
 .menu-toggle {
   display: none;
   position: fixed;
   top: 15px;
-  right: 15px; /* ALTERADO: Agora fixado no canto direito superior */
+  right: 15px; 
   z-index: 100;
   background: #041430;
   color: #ffffff;
   border: 2px solid var(--accent-yellow);
   border-radius: 8px;
-  width: 48px;
-  height: 48px;
-  font-size: 1.6rem;
+  width: 44px;
+  height: 44px;
+  font-size: 1.4rem;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(0,0,0,0.5);
   align-items: center;
@@ -76,13 +76,13 @@ body {
 }
 
 /* ==========================================
-   SIDEBAR & LOGO MAXIMIZADO (MARGENS MÍNIMAS)
+   SIDEBAR & LOGO
    ========================================== */
 .sidebar {
   width: 100%;
-  max-width: 280px;
+  max-width: 260px; /* Levemente mais estreita para equilibrar a tela */
   background: var(--bg-sidebar);
-  padding: 10px 0 30px 0;
+  padding: 10px 0 25px 0;
   box-shadow: 4px 0 25px rgba(0, 0, 0, 0.3);
   position: sticky;
   top: 0;
@@ -97,7 +97,7 @@ body {
 
 .brand {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   width: 100%;
   background-color: #041430;
   padding: 10px;
@@ -112,10 +112,10 @@ body {
 }
 
 .brand-sub {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #ffffff;
   font-weight: 600;
-  margin-top: 8px;
+  margin-top: 6px;
   letter-spacing: 1px;
   text-transform: uppercase;
   opacity: 0.8;
@@ -125,20 +125,20 @@ body {
 .main-nav {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-bottom: 30px;
-  padding: 0 20px;
+  gap: 6px;
+  margin-bottom: 25px;
+  padding: 0 15px;
 }
 
 .nav-link {
   display: flex;
   align-items: center;
-  padding: 12px 16px;
+  padding: 10px 14px;
   text-decoration: none;
   color: var(--text-secondary);
   border-radius: 6px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.9rem;
   transition: var(--transition);
 }
 
@@ -154,9 +154,9 @@ body {
 
 .contato-rapido {
   margin-top: auto;
-  margin-left: 20px;
-  margin-right: 20px;
-  padding: 20px 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 15px 12px;
   background-color: #f8fafc;
   border-radius: 12px;
   border: 1px solid var(--border-subtle);
@@ -164,11 +164,14 @@ body {
 }
 
 .contato-rapido h3 {
-  font-size: 1rem;
+  font-size: 0.9rem;
+  margin-top: 0;
+  margin-bottom: 5px;
 }
 
 .contato-rapido p {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
 }
 
 /* ==========================================
@@ -184,7 +187,7 @@ body {
 
 .main-header {
   background-color: rgba(4, 20, 48, 0.95);
-  padding: 25px 40px;
+  padding: 20px 40px;
   text-align: center;
   border-bottom: 2px solid var(--accent-yellow);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
@@ -192,10 +195,10 @@ body {
 
 .main-header h1 {
   font-family: 'Montserrat', sans-serif !important;
-  font-size: 2.5rem;
+  font-size: 2.2rem; /* Reduzido de 2.5rem para alinhar visualmente */
   color: #ffffff;
   margin: 0;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   font-weight: 800;
 }
 
@@ -207,25 +210,25 @@ body {
 
 .content {
   flex: 1;
-  padding: 40px;
-  max-width: 1200px;
+  padding: 30px; /* Reduzido o recuo externo */
+  max-width: 1100px;
   width: 100%;
   margin: 0 auto;
 }
 
-/* Estilo Base dos Cards */
+/* Cards Ajustados */
 .card {
   background: var(--card-bg) !important;
-  border-radius: 14px;
-  padding: 40px;
-  margin-bottom: 35px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 30px; /* Reduzido de 40px para aproximar as informações */
+  margin-bottom: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
 .card p {
-  font-size: 1.1rem;
-  line-height: 1.7;
+  font-size: 1rem; /* Ajustado de 1.1rem para o padrão limpo */
+  color: var(--text-secondary);
 }
 
 #sobre, #portfolio {
@@ -237,58 +240,60 @@ body {
   text-align: center !important;
   display: block;
   width: 100%;
-  margin-top: 5px;
-  margin-bottom: 25px;
+  margin-top: 0px;
+  margin-bottom: 20px;
   color: var(--text-secondary);
-  font-size: 1.25rem;
+  font-size: 1.05rem; /* Ajustado para um tamanho elegante */
   font-weight: 600;
 }
 
 .hero {
-  padding-top: 30px !important;
+  padding-top: 25px !important;
 }
 
 .selo-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .selo-urgencia {
   background: #041430 !important; 
   color: #ffffff !important;      
-  padding: 14px 32px;             
+  padding: 10px 24px;             
   border-radius: 30px;
   font-weight: 800;
-  font-size: 1.15rem;             
-  box-shadow: 0 6px 18px rgba(4, 20, 48, 0.3);
+  font-size: 1rem;             
+  box-shadow: 0 4px 12px rgba(4, 20, 48, 0.2);
   border: 2px solid var(--accent-yellow);
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 h2 {
   font-family: 'Montserrat', sans-serif !important;
-  font-size: 2rem;
+  font-size: 1.6rem; /* Ajustado de 2rem para evitar dispersão */
   color: var(--accent-blue);
   margin-top: 0;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   text-align: center;
 }
 
-/* Grade de Serviços */
+/* ==========================================
+   SESSÃO DE SERVIÇOS MAIS COMPACTA (CORREÇÃO)
+   ========================================== */
 .servicos-lista {
   display: grid;
   grid-template-columns: repeat(2, 1fr); 
-  gap: 24px;
-  margin-top: 2rem;
+  gap: 20px;
+  margin-top: 1.5rem;
 }
 
 .servico-item {
   background: #ffffff !important;
-  padding: 35px 28px;
-  border-radius: 12px;
+  padding: 20px; /* REDUZIDO EXTRA: Deixa os retângulos menores e mais justos */
+  border-radius: 10px;
   border: 1px solid var(--border-subtle);
   box-shadow: 0 4px 10px rgba(0,0,0,0.02);
   display: flex;
@@ -297,17 +302,19 @@ h2 {
 
 .servico-item h3 {
   font-family: 'Montserrat', sans-serif !important;
-  font-size: 1.35rem;
+  font-size: 1.15rem; /* Compactado */
   margin-top: 0;
+  margin-bottom: 10px;
 }
 
 .servico-item p {
-  font-size: 1.05rem;
+  font-size: 0.95rem; /* Texto interno menor para encaixar perfeitamente */
+  margin: 0;
 }
 
 .icon-container {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
+  font-size: 1.8rem; /* Ícones menores para não inflar o bloco */
+  margin-bottom: 10px;
 }
 
 /* ==========================================
@@ -316,10 +323,10 @@ h2 {
 .carousel-container {
   position: relative;
   width: 100%;
-  max-width: 800px; 
+  max-width: 750px; 
   margin: 0 auto;
   overflow: hidden;
-  border-radius: 14px;
+  border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
   background: #ffffff; 
 }
@@ -328,7 +335,7 @@ h2 {
   position: relative;
   width: 100%;
   height: auto;
-  min-height: 480px; 
+  min-height: 440px; 
   display: flex;
   align-items: center;
 }
@@ -356,7 +363,7 @@ h2 {
 
 .carousel-container img {
   width: 100%;
-  height: 360px;
+  height: 350px;
   object-fit: contain; 
   background-color: #ffffff;
   border-radius: 8px;
@@ -364,9 +371,9 @@ h2 {
 
 .carousel-container figcaption {
   font-family: 'Montserrat', sans-serif !important;
-  margin-top: 10px;
+  margin-top: 8px;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   text-align: center;
   color: var(--accent-blue);
 }
@@ -378,9 +385,9 @@ h2 {
   background: rgba(4, 20, 48, 0.85);
   color: var(--accent-yellow);
   border: none;
-  width: 42px;
-  height: 42px;
-  font-size: 1.2rem;
+  width: 38px;
+  height: 38px;
+  font-size: 1.1rem;
   font-weight: bold;
   border-radius: 50%;
   cursor: pointer;
@@ -393,11 +400,11 @@ h2 {
 
 .carousel-btn:hover {
   background: rgba(4, 20, 48, 1);
-  scale: 1.1;
+  scale: 1.05;
 }
 
-.carousel-btn.prev { left: 12px; }
-.carousel-btn.next { right: 12px; }
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
 
 /* Botões Gerais */
 .button {
@@ -405,13 +412,13 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 14px 28px;
+  padding: 12px 24px; /* Mais compacto */
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 6px;
   font-weight: 700;
   border: none;
   cursor: pointer;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
 }
 
 .button-whatsapp { 
@@ -419,7 +426,7 @@ h2 {
   color: white; 
   width: 100%; 
   border-radius: 30px; 
-  padding: 12px 24px;   
+  padding: 10px 20px;   
   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); 
   transition: all 0.2s ease-in-out;
 }
@@ -431,12 +438,16 @@ h2 {
 }
 
 .button-cta { background: var(--accent-blue); color: var(--accent-yellow); }
-.final-cta { text-align: center; padding: 50px 30px !important; }
+.final-cta { text-align: center; padding: 40px 20px !important; }
 
 /* ==========================================
-   OTIMIZAÇÃO MOBILE COM NAVEGAÇÃO À DIREITA
+   OTIMIZAÇÃO COMPLETA PARA TABLETS E CELULARES
    ========================================== */
 @media (max-width: 1024px) {
+  html {
+    font-size: 15px; /* Fonte reduzida no mobile para evitar que fique gigante */
+  }
+
   .menu-toggle {
     display: flex; 
   }
@@ -444,7 +455,6 @@ h2 {
   .sidebar {
     position: fixed;
     top: 0;
-    /* ALTERADO: Menu agora fica escondido na direita (+280px) e desliza para a esquerda */
     left: auto;
     right: -280px; 
     height: 100vh;
@@ -452,70 +462,68 @@ h2 {
     box-shadow: -10px 0 30px rgba(0,0,0,0.5);
   }
 
-  /* ALTERADO: Abre fixando na borda direita da tela */
   .sidebar.open {
     left: auto;
     right: 0;
   }
 
   .main-container {
-    padding-top: 75px; 
+    padding-top: 70px; 
   }
 
   .content {
-    padding: 20px 15px; 
+    padding: 15px 12px; 
   }
 
   .card {
-    padding: 30px 20px;
-    margin-bottom: 25px;
+    padding: 20px 15px; /* Reduzido o espaço interno dos cards no celular */
+    margin-bottom: 20px;
   }
 }
 
 @media (max-width: 900px) {
   .servicos-lista {
     grid-template-columns: 1fr; 
-    gap: 16px;
+    gap: 14px;
   }
 }
 
 @media (max-width: 640px) {
   .main-header {
-    padding: 20px 15px;
+    padding: 15px 10px;
   }
 
   .main-header h1 { 
-    font-size: 1.6rem; 
-    letter-spacing: 2px;
+    font-size: 1.4rem; 
+    letter-spacing: 1px;
   }
   
   .carousel-slides {
-    min-height: 250px; 
+    min-height: 230px; 
   }
 
   .carousel-container img {
-    height: 180px; 
+    height: 160px; 
   }
   
   .carousel-btn {
-    width: 36px;
-    height: 36px;
-    font-size: 0.9rem;
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
   }
   
-  .carousel-btn.prev { left: 8px; }
-  .carousel-btn.next { right: 8px; }
+  .carousel-btn.prev { left: 6px; }
+  .carousel-btn.next { right: 6px; }
   
   .carousel-container figcaption {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
   }
 
   .subtitle {
-    font-size: 1.1rem;
-    padding: 0 5px;
+    font-size: 1rem;
   }
 
   .card p {
-    font-size: 1.05rem; 
+    font-size: 0.95rem; /* Letras do texto principal bem calibradas no mobile */
   }
 }
