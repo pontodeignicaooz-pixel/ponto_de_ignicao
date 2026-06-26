@@ -9,7 +9,7 @@
   <link rel="icon" href="logo.jpg.jpeg" type="image/jpeg">
   <link rel="apple-touch-icon" href="logo.jpg.jpeg">
   
-  <meta name="description" content="Ponto de Ignição: Reparos elétricos residenciais, automação residencial e modernização de fiação em casas antigas in Osasco e região.">
+  <meta name="description" content="Ponto de Ignição: Reparos elétricos residenciais, automação residencial e modernização de fiação em casas antigas em Osasco e região.">
   <meta name="theme-color" content="#041430">
   <meta property="og:title" content="Ponto de Ignição — Soluções Elétricas Inteligentes">
   <meta property="og:description" content="Problemas na fiação? Mau contato em tomadas e interruptores? Precisa de um ponto de energia extra? Atendimento personalizado para a resolução de seu problema. Também modernizamos sua casa com soluções de automação.">
@@ -18,6 +18,7 @@
 
 <body>
 
+  <!-- BOTÃO DE MENU SUSPENSO (APENAS PARA CELULAR) -->
   <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">☰</button>
 
   <div class="app">
@@ -52,6 +53,7 @@
 
       <main class="content">
         
+        <!-- SEÇÃO SOBRE A EMPRESA -->
         <section id="sobre" class="card hero">
           <div class="selo-container">
             <div class="selo-urgencia">
@@ -70,6 +72,7 @@
           </div>
         </section>
 
+        <!-- SEÇÃO NOSSOS SERVIÇOS -->
         <section id="servicos" class="card card-servicos">
           <h2>Nossos Serviços</h2>
           <p class="subtitle">Soluções completas, desde pequenos reparos à modernização.</p>
@@ -101,6 +104,7 @@
           </div>
         </section>
 
+        <!-- SEÇÃO TRABALHOS REALIZADOS (COM CARROSSEL INTEGRADO) -->
         <section id="portfolio" class="card">
           <h2>Trabalhos Realizados</h2>
           <p class="subtitle">Veja o antes e depois da modernização em residências na região.</p>
@@ -138,6 +142,7 @@
           </div>
         </section>
 
+        <!-- SEÇÃO CONTATO -->
         <section id="contato" class="card final-cta">
           <h2>Valorize seu imóvel e garanta mais bem-estar.</h2>
           <p>Instalações elétricas antigas perdem eficiência e consomem mais energia. Agende uma avaliação técnica e ganhe total tranquilidade.</p>
@@ -212,7 +217,7 @@
         const targetId = this.getAttribute('href');
         const targetSection = document.querySelector(targetId);
         if (targetSection) {
-          sidebar.classList.remove('open'); // Fecha o menu no celular após clicar
+          sidebar.classList.remove('open');
           if(window.innerWidth <= 1024) menuToggle.innerText = '☰';
           navLinks.forEach(l => l.classList.remove('active'));
           this.classList.add('active');
