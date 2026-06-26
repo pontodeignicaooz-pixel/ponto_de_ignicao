@@ -79,7 +79,7 @@ body {
   width: 100%;
   max-width: 280px;
   background: var(--bg-sidebar);
-  padding: 10px 0 30px 0; /* Reduzido o topo */
+  padding: 10px 0 30px 0;
   box-shadow: 4px 0 25px rgba(0, 0, 0, 0.3);
   position: sticky;
   top: 0;
@@ -97,7 +97,7 @@ body {
   margin-bottom: 25px;
   width: 100%;
   background-color: #041430;
-  padding: 10px; /* Margem sutil nos quatro lados dele */
+  padding: 10px;
   border-radius: 6px;
 }
 
@@ -196,7 +196,6 @@ body {
   margin: 0 auto;
 }
 
-/* Cards padrão */
 .card {
   background: var(--card-bg) !important;
   border-radius: 14px;
@@ -206,9 +205,9 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-/* AJUSTE DOS FUNDOS PEDIDOS: 3 Tons mais escuros */
+/* AJUSTE DOS FUNDOS: 3 Tons mais escuros */
 #sobre, #portfolio {
-  background: #d2e0f5 !important; /* Azul significativamente mais forte e visível */
+  background: #d2e0f5 !important; 
   border: 1px solid rgba(4, 20, 48, 0.2);
 }
 
@@ -224,12 +223,12 @@ body {
 }
 
 .selo-urgencia {
-  background: #041430 !important; /* Fundo bem forte e encorpado */
-  color: #ffffff !important;      /* Letra branca para legibilidade perfeita */
-  padding: 14px 32px;             /* Bem maior */
+  background: #041430 !important; 
+  color: #ffffff !important;      
+  padding: 14px 32px;             
   border-radius: 30px;
   font-weight: 800;
-  font-size: 1.15rem;             /* Fonte aumentada */
+  font-size: 1.15rem;             
   box-shadow: 0 6px 18px rgba(4, 20, 48, 0.3);
   border: 2px solid var(--accent-yellow);
   display: inline-flex;
@@ -269,23 +268,26 @@ h2 {
 }
 
 /* ==========================================
-   ESTRUTURA COMPACTA E MODERNA DO CARROSSEL
+   ESTRUTURA DO CARROSSEL SEM CORTE (CONTAIN)
    ========================================== */
 .carousel-container {
   position: relative;
   width: 100%;
-  max-width: 600px; /* Tamanho excelente e centralizado */
+  max-width: 800px; /* Expandido para acomodar a largura dupla no PC */
   margin: 0 auto;
   overflow: hidden;
   border-radius: 14px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  background: #ffffff; 
 }
 
 .carousel-slides {
   position: relative;
   width: 100%;
-  height: 420px; /* Altura ideal para exibir fotos uma sobre as outras */
-  background: #ffffff;
+  height: auto;
+  min-height: 450px; /* Mantém proporção boa no PC */
+  display: flex;
+  align-items: center;
 }
 
 .slide {
@@ -297,9 +299,10 @@ h2 {
   margin: 0;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.5s ease-in-out, visibility 0.5s;
+  transition: opacity 0.4s ease-in-out, visibility 0.4s;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 15px;
 }
 
@@ -310,30 +313,30 @@ h2 {
 
 .carousel-container img {
   width: 100%;
-  height: 340px;
-  object-fit: cover;
+  height: 360px;
+  object-fit: contain; /* ESSENCIAL: Mostra o Antes e Depois completo sem cortes */
+  background-color: #ffffff;
   border-radius: 8px;
 }
 
 .carousel-container figcaption {
-  margin-top: auto;
+  margin-top: 10px;
   font-weight: 700;
   font-size: 1rem;
   text-align: center;
   color: var(--accent-blue);
 }
 
-/* Botões com as Setas de Passar */
 .carousel-btn {
   position: absolute;
-  top: 45%;
+  top: 50%;
   transform: translateY(-50%);
   background: rgba(4, 20, 48, 0.85);
   color: var(--accent-yellow);
   border: none;
-  width: 45px;
-  height: 45px;
-  font-size: 1.3rem;
+  width: 40px;
+  height: 40px;
+  font-size: 1.1rem;
   font-weight: bold;
   border-radius: 50%;
   cursor: pointer;
@@ -349,10 +352,10 @@ h2 {
   scale: 1.1;
 }
 
-.carousel-btn.prev { left: 15px; }
-.carousel-btn.next { right: 15px; }
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
 
-/* Botões padrão do site */
+/* Botões */
 .button {
   display: inline-flex;
   align-items: center;
@@ -376,25 +379,24 @@ h2 {
    ========================================== */
 @media (max-width: 1024px) {
   .menu-toggle {
-    display: flex; /* Exibe o botão de hambúrguer */
+    display: flex; 
   }
 
   .sidebar {
     position: fixed;
     top: 0;
-    left: -280px; /* Oculta a barra lateral para fora da tela */
+    left: -280px; 
     height: 100vh;
     z-index: 99;
     box-shadow: 10px 0 30px rgba(0,0,0,0.5);
   }
 
-  /* Classe acionada pelo JS para trazer o menu para dentro */
   .sidebar.open {
     left: 0;
   }
 
   .main-container {
-    padding-top: 60px; /* Dá espaço para o botão flutuante não cobrir o título */
+    padding-top: 60px; 
   }
 
   .content {
@@ -410,7 +412,25 @@ h2 {
 
 @media (max-width: 640px) {
   .main-header h1 { font-size: 1.8rem; }
-  .carousel-container { height: 360px; }
-  .carousel-slides { height: 360px; }
-  .carousel-container img { height: 280px; }
+  
+  .carousel-slides {
+    min-height: 280px; /* Redução dinâmica de altura para o mobile */
+  }
+
+  .carousel-container img {
+    height: 200px; /* Encaixa a foto horizontal perfeitamente na tela do celular */
+  }
+  
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+  
+  .carousel-btn.prev { left: 5px; }
+  .carousel-btn.next { right: 5px; }
+  
+  .carousel-container figcaption {
+    font-size: 0.85rem;
+  }
 }
