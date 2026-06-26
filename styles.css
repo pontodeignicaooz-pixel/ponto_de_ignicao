@@ -46,6 +46,26 @@ body {
   background-attachment: fixed;
 }
 
+/* BOTÃO DE MENU SUSPENSO MOBILE */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 100;
+  background: #041430;
+  color: #ffffff;
+  border: 2px solid var(--accent-yellow);
+  border-radius: 8px;
+  width: 45px;
+  height: 45px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  align-items: center;
+  justify-content: center;
+}
+
 .app {
   display: flex;
   min-height: 100vh;
@@ -53,13 +73,13 @@ body {
 }
 
 /* ==========================================
-   SIDEBAR & LOGO (RESTAURADO AO ORIGINAL)
+   SIDEBAR & LOGO MAXIMIZADO (MARGENS MÍNIMAS)
    ========================================== */
 .sidebar {
   width: 100%;
-  max-width: 280px; /* Voltando para os 280px originais */
+  max-width: 280px;
   background: var(--bg-sidebar);
-  padding: 30px 0; 
+  padding: 10px 0 30px 0; /* Reduzido o topo */
   box-shadow: 4px 0 25px rgba(0, 0, 0, 0.3);
   position: sticky;
   top: 0;
@@ -67,31 +87,35 @@ body {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  z-index: 10;
+  z-index: 90;
   flex-shrink: 0; 
+  transition: var(--transition);
 }
 
 .brand {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   width: 100%;
-  padding: 0 20px; /* Restaurado o recuo original nas laterais */
+  background-color: #041430;
+  padding: 10px; /* Margem sutil nos quatro lados dele */
+  border-radius: 6px;
 }
 
 .logo-img {
-  max-width: 180px; /* Restaurado o tamanho padrão original */
+  width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto;
+  object-fit: contain;
 }
 
 .brand-sub {
-  font-size: 0.85rem;
-  color: var(--text-light);
+  font-size: 0.8rem;
+  color: #ffffff;
   font-weight: 600;
-  margin-top: 10px;
+  margin-top: 8px;
   letter-spacing: 1px;
   text-transform: uppercase;
+  opacity: 0.8;
 }
 
 /* Menu de Navegação */
@@ -137,14 +161,14 @@ body {
 }
 
 /* ==========================================
-   CONTEÚDO CENTRALIZADO (CORREÇÃO DE CORTE DAS FOTOS)
+   CONTEÚDO E CASAS DE COR MAIS ESCURAS
    ========================================== */
 .main-container {
   flex: 1;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  min-width: 0; /* Garante que elementos filhos não estoure o layout da direita */
+  min-width: 0;
 }
 
 .main-header {
@@ -172,7 +196,7 @@ body {
   margin: 0 auto;
 }
 
-/* Cards */
+/* Cards padrão */
 .card {
   background: var(--card-bg) !important;
   border-radius: 14px;
@@ -182,33 +206,35 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-/* Card Trabalhos Realizados - 2 tons mais escuro */
-#portfolio {
-  background: #e2ebf8 !important;
-  border: 1px solid rgba(4, 20, 48, 0.15);
+/* AJUSTE DOS FUNDOS PEDIDOS: 3 Tons mais escuros */
+#sobre, #portfolio {
+  background: #d2e0f5 !important; /* Azul significativamente mais forte e visível */
+  border: 1px solid rgba(4, 20, 48, 0.2);
 }
 
 .hero {
   padding-top: 30px !important;
 }
 
+/* NOVO DESTAQUE DO TRECHO "SUPORTE RESIDENCIAL" */
 .selo-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .selo-urgencia {
-  background: var(--accent-yellow);
-  color: var(--accent-blue);
-  padding: 10px 24px;
-  border-radius: 20px;
+  background: #041430 !important; /* Fundo bem forte e encorpado */
+  color: #ffffff !important;      /* Letra branca para legibilidade perfeita */
+  padding: 14px 32px;             /* Bem maior */
+  border-radius: 30px;
   font-weight: 800;
-  font-size: 0.9rem;
-  box-shadow: 0 4px 12px rgba(255, 213, 0, 0.3);
-  display: flex;
+  font-size: 1.15rem;             /* Fonte aumentada */
+  box-shadow: 0 6px 18px rgba(4, 20, 48, 0.3);
+  border: 2px solid var(--accent-yellow);
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 h2 {
@@ -237,47 +263,96 @@ h2 {
   flex-direction: column;
 }
 
-.item-urgencia {
-  border-left: 5px solid var(--accent-yellow);
-  background: #fffdf2 !important;
-}
-
 .icon-container {
   font-size: 2.2rem;
   margin-bottom: 15px;
 }
 
-/* Galeria de Fotos */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
+/* ==========================================
+   ESTRUTURA COMPACTA E MODERNA DO CARROSSEL
+   ========================================== */
+.carousel-container {
+  position: relative;
   width: 100%;
+  max-width: 600px; /* Tamanho excelente e centralizado */
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
-.gallery figure {
+.carousel-slides {
+  position: relative;
+  width: 100%;
+  height: 420px; /* Altura ideal para exibir fotos uma sobre as outras */
+  background: #ffffff;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   margin: 0;
-  background: #ffffff !important;
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid var(--border-subtle);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
 }
 
-.gallery img {
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.carousel-container img {
   width: 100%;
-  height: 170px;
+  height: 340px;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
-.gallery figcaption {
-  margin-top: 10px;
-  font-weight: 600;
-  font-size: 0.9rem;
+.carousel-container figcaption {
+  margin-top: auto;
+  font-weight: 700;
+  font-size: 1rem;
   text-align: center;
+  color: var(--accent-blue);
 }
 
-/* Botões */
+/* Botões com as Setas de Passar */
+.carousel-btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  background: rgba(4, 20, 48, 0.85);
+  color: var(--accent-yellow);
+  border: none;
+  width: 45px;
+  height: 45px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn:hover {
+  background: rgba(4, 20, 48, 1);
+  scale: 1.1;
+}
+
+.carousel-btn.prev { left: 15px; }
+.carousel-btn.next { right: 15px; }
+
+/* Botões padrão do site */
 .button {
   display: inline-flex;
   align-items: center;
@@ -297,13 +372,34 @@ h2 {
 .final-cta { text-align: center; padding: 50px 30px !important; }
 
 /* ==========================================
-   RESPONSIVIDADE
+   RESPONSIVIDADE E MENU HAMBÚRGUER MOBILE
    ========================================== */
 @media (max-width: 1024px) {
-  .app { flex-direction: column; }
-  .sidebar { width: 100%; max-width: 100%; height: auto; position: static; padding: 20px 0; }
-  .main-nav { display: grid; grid-template-columns: 1fr 1fr; padding: 0 15px; gap: 6px; margin-bottom: 15px; }
-  .contato-rapido { margin: 10px 15px 0 15px; }
+  .menu-toggle {
+    display: flex; /* Exibe o botão de hambúrguer */
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px; /* Oculta a barra lateral para fora da tela */
+    height: 100vh;
+    z-index: 99;
+    box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+  }
+
+  /* Classe acionada pelo JS para trazer o menu para dentro */
+  .sidebar.open {
+    left: 0;
+  }
+
+  .main-container {
+    padding-top: 60px; /* Dá espaço para o botão flutuante não cobrir o título */
+  }
+
+  .content {
+    padding: 20px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -314,5 +410,7 @@ h2 {
 
 @media (max-width: 640px) {
   .main-header h1 { font-size: 1.8rem; }
-  .content { padding: 15px; }
+  .carousel-container { height: 360px; }
+  .carousel-slides { height: 360px; }
+  .carousel-container img { height: 280px; }
 }
