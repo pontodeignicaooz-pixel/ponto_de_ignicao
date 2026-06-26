@@ -1,4 +1,4 @@
-/* A IMPORTAÇÃO DEVE SER SEMPRE A PRIMEIRA LINHA DO ARQUIVO */
+/* IMPORTAÇÃO DE FONTES PREMIUM (MONTSERRAT E INTER) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap');
 
 * {
@@ -28,7 +28,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 18px; /* Aumentado o tamanho geral do site de 16px para 18px */
+  font-size: 18px; /* Tamanho base aumentado para melhor leitura global */
 }
 
 body {
@@ -140,7 +140,7 @@ body {
   color: var(--text-secondary);
   border-radius: 6px;
   font-weight: 600;
-  font-size: 1rem; /* Leve aumento no menu */
+  font-size: 1rem;
   transition: var(--transition);
 }
 
@@ -219,9 +219,8 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-/* Aumento dos textos internos gerais dos parágrafos */
 .card p {
-  font-size: 1.1rem; /* Texto maior e mais imponente */
+  font-size: 1.1rem;
   line-height: 1.7;
 }
 
@@ -231,7 +230,7 @@ body {
   border: 1px solid rgba(4, 20, 48, 0.2);
 }
 
-/* CORREÇÃO DAS FRASES: Centralizadas e Maiores em todos os locais */
+/* SUBTÍTULOS CENTRALIZADOS E AMPLIADOS */
 .subtitle {
   text-align: center !important;
   display: block;
@@ -239,7 +238,7 @@ body {
   margin-top: 5px;
   margin-bottom: 25px;
   color: var(--text-secondary);
-  font-size: 1.25rem; /* Fonte ampliada para destaque ideal */
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
@@ -270,7 +269,7 @@ body {
 
 h2 {
   font-family: 'Montserrat', sans-serif !important;
-  font-size: 2rem; /* Títulos ligeiramente maiores */
+  font-size: 2rem;
   color: var(--accent-blue);
   margin-top: 0;
   margin-bottom: 15px;
@@ -297,12 +296,12 @@ h2 {
 
 .servico-item h3 {
   font-family: 'Montserrat', sans-serif !important;
-  font-size: 1.35rem; /* Título do serviço maior */
+  font-size: 1.35rem;
   margin-top: 0;
 }
 
 .servico-item p {
-  font-size: 1.05rem; /* Descrição do serviço maior */
+  font-size: 1.05rem;
 }
 
 .icon-container {
@@ -399,7 +398,7 @@ h2 {
 .carousel-btn.prev { left: 10px; }
 .carousel-btn.next { right: 10px; }
 
-/* Botões */
+/* BOTÕES GERAIS E ATUALIZAÇÃO DO CORPO DO WHATSAPP (ESTILO PÍLULA) */
 .button {
   display: inline-flex;
   align-items: center;
@@ -414,7 +413,22 @@ h2 {
   font-size: 1.05rem;
 }
 
-.button-whatsapp { background: #25D366; color: white; width: 100%; }
+.button-whatsapp { 
+  background: #25D366; 
+  color: white; 
+  width: 100%; 
+  border-radius: 30px; /* Transforma o formato em pílula arredondada */
+  padding: 12px 24px;   
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); /* Efeito luminoso verde sutil */
+  transition: all 0.2s ease-in-out;
+}
+
+.button-whatsapp:hover {
+  background: #20ba5a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+}
+
 .button-cta { background: var(--accent-blue); color: var(--accent-yellow); }
 
 .final-cta { text-align: center; padding: 50px 30px !important; }
