@@ -9,17 +9,20 @@
   <link rel="icon" href="logo.jpg.jpeg" type="image/jpeg">
   <link rel="apple-touch-icon" href="logo.jpg.jpeg">
   
-  <meta name="description" content="Ponto de Ignição: Reparos elétricos residenciais, automação residencial e modernização de fiação em casas antigas em Osasco e região.">
+  <meta name="description" content="Ponto de Ignição: Reparos elétricos residenciais, automação residencial e modernização de fiação em casas antigas in Osasco e região.">
   <meta name="theme-color" content="#041430">
   <meta property="og:title" content="Ponto de Ignição — Soluções Elétricas Inteligentes">
-  <meta property="og:description" content="Problemas na fiação? Mal contato em tomadas e interruptores? Precisa de um ponto de energia extra? Atendimento personalizado para a resolution de seu problema. Também modernizamos sua casa com soluções de automação.">
+  <meta property="og:description" content="Problemas na fiação? Mau contato em tomadas e interruptores? Precisa de um ponto de energia extra? Atendimento personalizado para a resolução de seu problema. Também modernizamos sua casa com soluções de automação.">
   <meta property="og:image" content="logo.jpg.jpeg">
 </head>
 
 <body>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">☰</button>
+
   <div class="app">
     
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
       <div class="brand">
         <img src="logo.jpg.jpeg" alt="Logo Ponto de Ignição" class="logo-img" onerror="this.onerror=null; this.src='imagens/logo.jpg.jpeg';" />
         <p class="brand-sub">Soluções & Automação</p>
@@ -51,7 +54,7 @@
         
         <section id="sobre" class="card hero">
           <div class="selo-container">
-            <div class="selo-urgencia" style="background: var(--accent-light-blue); color: var(--accent-blue); box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+            <div class="selo-urgencia">
               <span class="icon-seal">🏠</span>
               <div>Suporte Residencial</div>
             </div>
@@ -102,31 +105,36 @@
           <h2>Trabalhos Realizados</h2>
           <p class="subtitle">Veja o antes e depois da modernização em residências na região.</p>
           
-          <div class="gallery">
-            <figure>
-              <img src="imagens/trabalho1.jpeg" alt="Adequação do Quadro de Força" loading="lazy">
-              <figcaption>Adequação do Quadro de Força</figcaption>
-            </figure>
-          
-            <figure>
-              <img src="imagens/trabalho2.jpeg" alt="Automação de Iluminação" loading="lazy">
-              <figcaption>Automação de Iluminação</figcaption>
-            </figure>
-          
-            <figure>
-              <img src="imagens/trabalho3.jpeg" alt="Troca de Fiação Segura" loading="lazy">
-              <figcaption>Troca de Fiação Segura</figcaption>
-            </figure>
-          
-            <figure>
-              <img src="imagens/trabalho4.jpeg" alt="Reparos Rápidos e Seguros" loading="lazy">
-              <figcaption>Reparos Rápidos e Seguros</figcaption>
-            </figure>
+          <div class="carousel-container">
+            <div class="carousel-slides">
+              <figure class="slide active">
+                <img src="imagens/trabalho1.jpeg" alt="Adequação do Quadro de Força" loading="lazy">
+                <figcaption>Adequação do Quadro de Força</figcaption>
+              </figure>
+            
+              <figure class="slide">
+                <img src="imagens/trabalho2.jpeg" alt="Automação de Iluminação" loading="lazy">
+                <figcaption>Automação de Iluminação</figcaption>
+              </figure>
+            
+              <figure class="slide">
+                <img src="imagens/trabalho3.jpeg" alt="Troca de Fiação Segura" loading="lazy">
+                <figcaption>Troca de Fiação Segura</figcaption>
+              </figure>
+            
+              <figure class="slide">
+                <img src="imagens/trabalho4.jpeg" alt="Reparos Rápidos e Seguros" loading="lazy">
+                <figcaption>Reparos Rápidos e Seguros</figcaption>
+              </figure>
 
-            <figure>
-              <img src="imagens/trabalho5.jpeg" alt="Modernização Residencial Avançada" loading="lazy">
-              <figcaption>Modernização Residencial Avançada</figcaption>
-            </figure>
+              <figure class="slide">
+                <img src="imagens/trabalho5.jpeg" alt="Modernização Residencial Avançada" loading="lazy">
+                <figcaption>Modernização Residencial Avançada</figcaption>
+              </figure>
+            </div>
+            
+            <button class="carousel-btn prev" id="prevBtn" aria-label="Imagem Anterior">❮</button>
+            <button class="carousel-btn next" id="nextBtn" aria-label="Próxima Imagem">❯</button>
           </div>
         </section>
 
@@ -145,6 +153,31 @@
   </div>
 
   <script type="text/javascript">
+    // LÓGICA DO MENU SUSPENSO MOBILE
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+
+    menuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      menuToggle.innerText = sidebar.classList.contains('open') ? '✕' : '☰';
+    });
+
+    // LÓGICA DO CARROSSEL DE FOTOS
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (index + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+
+    prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+    nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+
+    // Scroll ativo do menu
     let ticking = false;
     const navLinks = document.querySelectorAll('nav a.nav-link');
     const sections = document.querySelectorAll('main > section');
@@ -179,6 +212,8 @@
         const targetId = this.getAttribute('href');
         const targetSection = document.querySelector(targetId);
         if (targetSection) {
+          sidebar.classList.remove('open'); // Fecha o menu no celular após clicar
+          if(window.innerWidth <= 1024) menuToggle.innerText = '☰';
           navLinks.forEach(l => l.classList.remove('active'));
           this.classList.add('active');
           targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
