@@ -3,7 +3,6 @@
 
 * {
   box-sizing: border-box;
-  /* Força a nova fonte Inter em absolutamente todos os textos do site */
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
@@ -28,7 +27,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 18px; /* Tamanho base aumentado para melhor leitura global */
+  font-size: 18px; 
 }
 
 body {
@@ -50,22 +49,22 @@ body {
   background-attachment: fixed;
 }
 
-/* BOTÃO DE MENU SUSPENSO MOBILE */
+/* BOTÃO DE MENU SUSPENSO MOBILE (REPOSICIONADO PARA O CANTO DIREITO) */
 .menu-toggle {
   display: none;
   position: fixed;
   top: 15px;
-  left: 15px;
+  right: 15px; /* ALTERADO: Agora fixado no canto direito superior */
   z-index: 100;
   background: #041430;
   color: #ffffff;
   border: 2px solid var(--accent-yellow);
   border-radius: 8px;
-  width: 45px;
-  height: 45px;
-  font-size: 1.5rem;
+  width: 48px;
+  height: 48px;
+  font-size: 1.6rem;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
   align-items: center;
   justify-content: center;
 }
@@ -91,7 +90,7 @@ body {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  z-index: 90;
+  z-index: 95;
   flex-shrink: 0; 
   transition: var(--transition);
 }
@@ -173,7 +172,7 @@ body {
 }
 
 /* ==========================================
-   CONTEÚDO E ESTILIZAÇÃO DOS RAIOS DO TÍTULO
+   CONTEÚDO PRINCIPAL
    ========================================== */
 .main-container {
   flex: 1;
@@ -200,10 +199,9 @@ body {
   font-weight: 800;
 }
 
-/* ESTILO DO RAIO AMARELO DO TÍTULO */
 .raio-titulo {
   color: var(--accent-yellow) !important;
-  text-shadow: 0 0 12px rgba(255, 213, 0, 0.6); /* Brilho de energia sutil */
+  text-shadow: 0 0 12px rgba(255, 213, 0, 0.6);
   display: inline-block;
 }
 
@@ -215,6 +213,7 @@ body {
   margin: 0 auto;
 }
 
+/* Estilo Base dos Cards */
 .card {
   background: var(--card-bg) !important;
   border-radius: 14px;
@@ -229,13 +228,11 @@ body {
   line-height: 1.7;
 }
 
-/* AJUSTE DOS FUNDOS: 3 Tons mais escuros */
 #sobre, #portfolio {
   background: #d2e0f5 !important; 
   border: 1px solid rgba(4, 20, 48, 0.2);
 }
 
-/* SUBTÍTULOS CENTRALIZADOS E AMPLIADOS */
 .subtitle {
   text-align: center !important;
   display: block;
@@ -251,7 +248,6 @@ body {
   padding-top: 30px !important;
 }
 
-/* NOVO DESTAQUE DO TRECHO "SUPORTE RESIDENCIAL" */
 .selo-container {
   display: flex;
   justify-content: center;
@@ -315,7 +311,7 @@ h2 {
 }
 
 /* ==========================================
-   ESTRUTURA DO CARROSSEL SEM CORTE (CONTAIN)
+   ESTRUTURA DO CARROSSEL
    ========================================== */
 .carousel-container {
   position: relative;
@@ -332,7 +328,7 @@ h2 {
   position: relative;
   width: 100%;
   height: auto;
-  min-height: 450px; 
+  min-height: 480px; 
   display: flex;
   align-items: center;
 }
@@ -382,9 +378,9 @@ h2 {
   background: rgba(4, 20, 48, 0.85);
   color: var(--accent-yellow);
   border: none;
-  width: 40px;
-  height: 40px;
-  font-size: 1.1rem;
+  width: 42px;
+  height: 42px;
+  font-size: 1.2rem;
   font-weight: bold;
   border-radius: 50%;
   cursor: pointer;
@@ -400,10 +396,10 @@ h2 {
   scale: 1.1;
 }
 
-.carousel-btn.prev { left: 10px; }
-.carousel-btn.next { right: 10px; }
+.carousel-btn.prev { left: 12px; }
+.carousel-btn.next { right: 12px; }
 
-/* BOTÕES GERAIS E WHATSAPP EM FORMATO OVAL/PÍLULA */
+/* Botões Gerais */
 .button {
   display: inline-flex;
   align-items: center;
@@ -422,7 +418,7 @@ h2 {
   background: #25D366; 
   color: white; 
   width: 100%; 
-  border-radius: 30px; /* Formato oval perfeito */
+  border-radius: 30px; 
   padding: 12px 24px;   
   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); 
   transition: all 0.2s ease-in-out;
@@ -435,11 +431,10 @@ h2 {
 }
 
 .button-cta { background: var(--accent-blue); color: var(--accent-yellow); }
-
 .final-cta { text-align: center; padding: 50px 30px !important; }
 
 /* ==========================================
-   RESPONSIVIDADE E MENU HAMBÚRGUER MOBILE
+   OTIMIZAÇÃO MOBILE COM NAVEGAÇÃO À DIREITA
    ========================================== */
 @media (max-width: 1024px) {
   .menu-toggle {
@@ -449,52 +444,78 @@ h2 {
   .sidebar {
     position: fixed;
     top: 0;
-    left: -280px; 
+    /* ALTERADO: Menu agora fica escondido na direita (+280px) e desliza para a esquerda */
+    left: auto;
+    right: -280px; 
     height: 100vh;
     z-index: 99;
-    box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
   }
 
+  /* ALTERADO: Abre fixando na borda direita da tela */
   .sidebar.open {
-    left: 0;
+    left: auto;
+    right: 0;
   }
 
   .main-container {
-    padding-top: 60px; 
+    padding-top: 75px; 
   }
 
   .content {
-    padding: 20px;
+    padding: 20px 15px; 
+  }
+
+  .card {
+    padding: 30px 20px;
+    margin-bottom: 25px;
   }
 }
 
 @media (max-width: 900px) {
   .servicos-lista {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; 
+    gap: 16px;
   }
 }
 
 @media (max-width: 640px) {
-  .main-header h1 { font-size: 1.8rem; }
+  .main-header {
+    padding: 20px 15px;
+  }
+
+  .main-header h1 { 
+    font-size: 1.6rem; 
+    letter-spacing: 2px;
+  }
   
   .carousel-slides {
-    min-height: 280px; 
+    min-height: 250px; 
   }
 
   .carousel-container img {
-    height: 200px; 
+    height: 180px; 
   }
   
   .carousel-btn {
-    width: 35px;
-    height: 35px;
+    width: 36px;
+    height: 36px;
     font-size: 0.9rem;
   }
   
-  .carousel-btn.prev { left: 5px; }
-  .carousel-btn.next { right: 5px; }
+  .carousel-btn.prev { left: 8px; }
+  .carousel-btn.next { right: 8px; }
   
   .carousel-container figcaption {
     font-size: 0.95rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    padding: 0 5px;
+  }
+
+  .card p {
+    font-size: 1.05rem; 
   }
 }
