@@ -433,4 +433,8 @@ h2 {
   .carousel-container figcaption {
     font-size: 0.85rem;
   }
+
+  .subtitle {
+  text-align: center;
+}
 }
