@@ -1,495 +1,231 @@
-/* IMPORTAÇÃO DE FONTES PREMIUM (MONTSERRAT E INTER) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap');
-
-* {
-  box-sizing: border-box;
-  /* Força a nova fonte Inter em absolutamente todos os textos do site */
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-:root {
-  /* Fundo Escuro Tecnológico Avançado */
-  --bg-main: #020b18; 
-  --bg-sidebar: #ffffff;
-  --card-bg: rgba(255, 255, 255, 0.96); 
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5" />
+  <title>Ponto de Ignição — Reparos e Modernização Residencial</title>
   
-  --text-primary: #041430;
-  --text-secondary: #334155;
-  --text-light: #64748b;
-  --accent-blue: #041430;
-  --accent-yellow: #ffd500; 
-  --accent-light-blue: #e0e7ff; 
-  --border-subtle: rgba(15, 23, 42, 0.08);
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="logo.jpg.jpeg" type="image/jpeg">
+  <link rel="apple-touch-icon" href="logo.jpg.jpeg">
   
-  /* Linhas de circuito integradas em Ciano Elétrico */
-  --circuit-line: rgba(0, 168, 204, 0.25); 
-  --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
+  <meta name="description" content="Ponto de Ignição: Reparos elétricos residenciais, automação residencial e modernização de fiação em casas antigas em Osasco e região.">
+  <meta name="theme-color" content="#041430">
+  <meta property="og:title" content="Ponto de Ignição — Soluções Elétricas Inteligentes">
+  <meta property="og:description" content="Problemas na fiação? Mau contato em tomadas e interruptores? Precisa de um ponto de energia extra? Atendimento personalizado para a resolução de seu problema. Também modernizamos sua casa com soluções de automação.">
+  <meta property="og:image" content="logo.jpg.jpeg">
+</head>
 
-html {
-  scroll-behavior: smooth;
-  font-size: 18px; /* Tamanho base aumentado para melhor leitura global */
-}
+<body>
 
-body {
-  margin: 0;
-  padding: 0;
-  color: var(--text-primary);
-  line-height: 1.6;
-  min-height: 100vh;
-  background-color: var(--bg-main);
-  
-  /* --- CIRCUITO IMPRESSO HIGH-TECH EM CSS PURO --- */
-  background-image: 
-    linear-gradient(90deg, var(--circuit-line) 1.5px, transparent 1.5px),
-    linear-gradient(var(--circuit-line) 1.5px, transparent 1.5px),
-    radial-gradient(var(--circuit-line) 4px, transparent 5px),
-    linear-gradient(45deg, transparent 48%, var(--circuit-line) 48%, var(--circuit-line) 52%, transparent 52%);
-  background-size: 100px 100px, 100px 100px, 100px 100px, 100px 100px;
-  background-position: 0 0, 0 0, 50px 50px, 50px 50px;
-  background-attachment: fixed;
-}
+  <!-- BOTÃO DE MENU SUSPENSO (APENAS PARA CELULAR) -->
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">☰</button>
 
-/* BOTÃO DE MENU SUSPENSO MOBILE */
-.menu-toggle {
-  display: none;
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  z-index: 100;
-  background: #041430;
-  color: #ffffff;
-  border: 2px solid var(--accent-yellow);
-  border-radius: 8px;
-  width: 45px;
-  height: 45px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  align-items: center;
-  justify-content: center;
-}
+  <div class="app">
+    
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <img src="logo.jpg.jpeg" alt="Logo Ponto de Ignição" class="logo-img" onerror="this.onerror=null; this.src='imagens/logo.jpg.jpeg';" />
+        <p class="brand-sub">Soluções & Automação</p>
+      </div>
+      
+      <nav aria-label="Menu Principal" class="main-nav">
+        <a href="#sobre" class="nav-link active">Sobre a Empresa</a>
+        <a href="#servicos" class="nav-link">Nossos Serviços</a>
+        <a href="#portfolio" class="nav-link">Trabalhos Realizados</a>
+        <a href="#contato" class="nav-link">Solicitar Orçamento</a>
+      </nav>
+      
+      <div class="contato-rapido">
+        <h3>Agende uma Visita</h3>
+        <p>Atendemos em Osasco e região.</p>
+        
+        <a href="https://wa.me/5511991030069" target="_blank" rel="noopener noreferrer" class="button button-whatsapp" aria-label="Chamar no WhatsApp">
+          <span class="icon-wa">💬</span> Chamar no WhatsApp
+        </a>
+      </div>
+    </aside>
 
-.app {
-  display: flex;
-  min-height: 100vh;
-  width: 100%;
-}
+    <div class="main-container">
+      <!-- CABEÇALHO ATUALIZADO COM OS RAIOS EM AMARELO -->
+      <header class="main-header">
+        <h1><span class="raio-titulo">⚡</span> PONT DE IGNIÇÃO <span class="raio-titulo">⚡</span></h1>
+      </header>
 
-/* ==========================================
-   SIDEBAR & LOGO MAXIMIZADO (MARGENS MÍNIMAS)
-   ========================================== */
-.sidebar {
-  width: 100%;
-  max-width: 280px;
-  background: var(--bg-sidebar);
-  padding: 10px 0 30px 0;
-  box-shadow: 4px 0 25px rgba(0, 0, 0, 0.3);
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  z-index: 90;
-  flex-shrink: 0; 
-  transition: var(--transition);
-}
+      <main class="content">
+        
+        <!-- SEÇÃO SOBRE A EMPRESA -->
+        <section id="sobre" class="card hero">
+          <div class="selo-container">
+            <div class="selo-urgencia">
+              <span class="icon-seal">🏠</span>
+              <div>Suporte Residencial</div>
+            </div>
+          </div>
 
-.brand {
-  text-align: center;
-  margin-bottom: 25px;
-  width: 100%;
-  background-color: #041430;
-  padding: 10px;
-  border-radius: 6px;
-}
+          <div class="header">
+            <h2>Seu problema elétrico resolvido com planejamento e segurança.</h2>
+          </div>
+          
+          <div class="body">
+            <p>A <strong>Ponto de Ignição</strong> é a sua escolha ideal para manter a infraestrutura da sua casa funcionando perfeitamente. Nós somos especializados em diagnosticar e resolver problemas crônicos da rede elétrica: mau contato em tomadas, quedas parciais de energia, disjuntores desatualizados e adequações técnicas necessárias para o dia a dia. Garantimos um atendimento focado em deixar seu lar seguro e funcional.</p>
+            <p>Nossa equipe em Osasco é altamente treinada para reabilitar a fiação em residências, trazendo conformidade técnica e abrindo portas para você aproveitar o melhor da automação residencial moderna. De pequenos reparos planejados a projetos de Smart Homes completos, entregamos a solução ideal com total transparência.</p>
+          </div>
+        </section>
 
-.logo-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
+        <!-- SEÇÃO NOSSOS SERVIÇOS -->
+        <section id="servicos" class="card card-servicos">
+          <h2>Nossos Serviços</h2>
+          <p class="subtitle">Soluções completas, desde pequenos reparos à modernização.</p>
+          
+          <div class="servicos-lista">
+            <div class="servico-item">
+              <div class="icon-container">🛠️</div>
+              <h3>Manutenção e Diagnóstico Elétrico</h3>
+              <p>Tomadas que não funcionam? Instalações instáveis? Realizamos uma análise detalhada dos circuitos para corrigir falhas e garantir estabilidade.</p>
+            </div>
+            
+            <div class="servico-item">
+              <div class="icon-container">💡</div>
+              <h3>Automação Residencial (Smart Home)</h3>
+              <p>Transforme sua casa antiga. Instalação de interruptores inteligentes, assistentes virtuais e iluminação automatizada.</p>
+            </div>
+            
+            <div class="servico-item">
+              <div class="icon-container">🔧</div>
+              <h3>Modernização de Casas Antigas</h3>
+              <p>Substituição de fiação antiga e fora do padrão, troca de tomadas velhas por NBR 14136 e adequação de quadros de força.</p>
+            </div>
+            
+            <div class="servico-item">
+              <div class="icon-container">⚙️</div>
+              <h3>Pequenos Reparos e Soluções</h3>
+              <p>Instalação de chuveiros, lustres, ventiladores de teto e troca de resistências com agilidade.</p>
+            </div>
+          </div>
+        </section>
 
-.brand-sub {
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 0.85rem;
-  color: #ffffff;
-  font-weight: 600;
-  margin-top: 8px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  opacity: 0.8;
-}
+        <!-- SEÇÃO TRABALHOS REALIZADOS (COM CARROSSEL INTEGRADO) -->
+        <section id="portfolio" class="card">
+          <h2>Trabalhos Realizados</h2>
+          <p class="subtitle">Veja o antes e depois da modernização em residências na região.</p>
+          
+          <div class="carousel-container">
+            <div class="carousel-slides">
+              <figure class="slide active">
+                <img src="imagens/trabalho1.jpeg" alt="Adequação do Quadro de Força" loading="lazy">
+                <figcaption>Adequação do Quadro de Força</figcaption>
+              </figure>
+            
+              <figure class="slide">
+                <img src="imagens/trabalho2.jpeg" alt="Automação de Iluminação" loading="lazy">
+                <figcaption>Automação de Iluminação</figcaption>
+              </figure>
+            
+              <figure class="slide">
+                <img src="imagens/trabalho3.jpeg" alt="Troca de Fiação Segura" loading="lazy">
+                <figcaption>Troca de Fiação Segura</figcaption>
+              </figure>
+            
+              <figure class="slide">
+                <img src="imagens/trabalho4.jpeg" alt="Reparos Rápidos e Seguros" loading="lazy">
+                <figcaption>Reparos Rápidos e Seguros</figcaption>
+              </figure>
 
-/* Menu de Navegação */
-.main-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 30px;
-  padding: 0 20px;
-}
+              <figure class="slide">
+                <img src="imagens/trabalho5.jpeg" alt="Modernização Residencial Avançada" loading="lazy">
+                <figcaption>Modernização Residencial Avançada</figcaption>
+              </figure>
+            </div>
+            
+            <button class="carousel-btn prev" id="prevBtn" aria-label="Imagem Anterior">❮</button>
+            <button class="carousel-btn next" id="nextBtn" aria-label="Próxima Imagem">❯</button>
+          </div>
+        </section>
 
-.nav-link {
-  display: flex;
-  align-items: center;
-  padding: 12px 16px;
-  text-decoration: none;
-  color: var(--text-secondary);
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: var(--transition);
-}
+        <!-- SEÇÃO CONTATO -->
+        <section id="contato" class="card final-cta">
+          <h2>Valorize seu imóvel e garanta mais bem-estar.</h2>
+          <p>Instalações elétricas antigas perdem eficiência e consomem mais energia. Agende uma avaliação técnica e ganhe total tranquilidade.</p>
+          <div class="cta-botoes-container">
+            <a href="https://wa.me/5511991030069" target="_blank" rel="noopener noreferrer" class="button button-cta button-large" aria-label="Agendar Atendimento">
+              <span class="icon-cta">📅</span> Solicitar Orçamento
+            </a>
+          </div>
+        </section>
 
-.nav-link:hover {
-  background-color: #f1f5f9;
-  color: var(--accent-blue);
-}
+      </main>
+    </div>
+  </div>
 
-.nav-link.active {
-  background-color: var(--accent-light-blue);
-  color: var(--accent-blue);
-}
+  <script type="text/javascript">
+    // LÓGICA DO MENU SUSPENSO MOBILE
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
 
-.contato-rapido {
-  margin-top: auto;
-  margin-left: 20px;
-  margin-right: 20px;
-  padding: 20px 15px;
-  background-color: #f8fafc;
-  border-radius: 12px;
-  border: 1px solid var(--border-subtle);
-  text-align: center;
-}
+    menuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      menuToggle.innerText = sidebar.classList.contains('open') ? '✕' : '☰';
+    });
 
-.contato-rapido h3 {
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 1rem;
-}
+    // LÓGICA DO CARROSSEL DE FOTOS
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentSlide = 0;
 
-.contato-rapido p {
-  font-size: 0.95rem;
-}
+    function showSlide(index) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (index + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
 
-/* ==========================================
-   CONTEÚDO E CASAS DE COR MAIS ESCURAS
-   ========================================== */
-.main-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  min-width: 0;
-}
+    prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+    nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
 
-.main-header {
-  background-color: rgba(4, 20, 48, 0.95);
-  padding: 25px 40px;
-  text-align: center;
-  border-bottom: 2px solid var(--accent-yellow);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
+    // Scroll ativo do menu
+    let ticking = false;
+    const navLinks = document.querySelectorAll('nav a.nav-link');
+    const sections = document.querySelectorAll('main > section');
 
-.main-header h1 {
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 2.5rem;
-  color: #ffffff;
-  margin: 0;
-  letter-spacing: 4px;
-  font-weight: 800;
-}
+    function updateActiveNav() {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (window.pageYOffset >= sectionTop - 250) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+          link.classList.add('active');
+        }
+      });
+      ticking = false;
+    }
 
-.content {
-  flex: 1;
-  padding: 40px;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.card {
-  background: var(--card-bg) !important;
-  border-radius: 14px;
-  padding: 40px;
-  margin-bottom: 35px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-}
-
-.card p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-}
-
-/* AJUSTE DOS FUNDOS: 3 Tons mais escuros */
-#sobre, #portfolio {
-  background: #d2e0f5 !important; 
-  border: 1px solid rgba(4, 20, 48, 0.2);
-}
-
-/* SUBTÍTULOS CENTRALIZADOS E AMPLIADOS */
-.subtitle {
-  text-align: center !important;
-  display: block;
-  width: 100%;
-  margin-top: 5px;
-  margin-bottom: 25px;
-  color: var(--text-secondary);
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.hero {
-  padding-top: 30px !important;
-}
-
-/* NOVO DESTAQUE DO TRECHO "SUPORTE RESIDENCIAL" */
-.selo-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 25px;
-}
-
-.selo-urgencia {
-  background: #041430 !important; 
-  color: #ffffff !important;      
-  padding: 14px 32px;             
-  border-radius: 30px;
-  font-weight: 800;
-  font-size: 1.15rem;             
-  box-shadow: 0 6px 18px rgba(4, 20, 48, 0.3);
-  border: 2px solid var(--accent-yellow);
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-
-h2 {
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 2rem;
-  color: var(--accent-blue);
-  margin-top: 0;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-/* Grade de Serviços */
-.servicos-lista {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 24px;
-  margin-top: 2rem;
-}
-
-.servico-item {
-  background: #ffffff !important;
-  padding: 35px 28px;
-  border-radius: 12px;
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-  display: flex;
-  flex-direction: column;
-}
-
-.servico-item h3 {
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 1.35rem;
-  margin-top: 0;
-}
-
-.servico-item p {
-  font-size: 1.05rem;
-}
-
-.icon-container {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
-
-/* ==========================================
-   ESTRUTURA DO CARROSSEL SEM CORTE (CONTAIN)
-   ========================================== */
-.carousel-container {
-  position: relative;
-  width: 100%;
-  max-width: 800px; 
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-  background: #ffffff; 
-}
-
-.carousel-slides {
-  position: relative;
-  width: 100%;
-  height: auto;
-  min-height: 450px; 
-  display: flex;
-  align-items: center;
-}
-
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease-in-out, visibility 0.4s;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 15px;
-}
-
-.slide.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.carousel-container img {
-  width: 100%;
-  height: 360px;
-  object-fit: contain; 
-  background-color: #ffffff;
-  border-radius: 8px;
-}
-
-.carousel-container figcaption {
-  font-family: 'Montserrat', sans-serif !important;
-  margin-top: 10px;
-  font-weight: 700;
-  font-size: 1.1rem;
-  text-align: center;
-  color: var(--accent-blue);
-}
-
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(4, 20, 48, 0.85);
-  color: var(--accent-yellow);
-  border: none;
-  width: 40px;
-  height: 40px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 5;
-  transition: var(--transition);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel-btn:hover {
-  background: rgba(4, 20, 48, 1);
-  scale: 1.1;
-}
-
-.carousel-btn.prev { left: 10px; }
-.carousel-btn.next { right: 10px; }
-
-/* BOTÕES GERAIS E ATUALIZAÇÃO DO CORPO DO WHATSAPP (ESTILO PÍLULA) */
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 14px 28px;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  font-size: 1.05rem;
-}
-
-.button-whatsapp { 
-  background: #25D366; 
-  color: white; 
-  width: 100%; 
-  border-radius: 30px; /* Transforma o formato em pílula arredondada */
-  padding: 12px 24px;   
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); /* Efeito luminoso verde sutil */
-  transition: all 0.2s ease-in-out;
-}
-
-.button-whatsapp:hover {
-  background: #20ba5a;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
-}
-
-.button-cta { background: var(--accent-blue); color: var(--accent-yellow); }
-
-.final-cta { text-align: center; padding: 50px 30px !important; }
-
-/* ==========================================
-   RESPONSIVIDADE E MENU HAMBÚRGUER MOBILE
-   ========================================== */
-@media (max-width: 1024px) {
-  .menu-toggle {
-    display: flex; 
-  }
-
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: -280px; 
-    height: 100vh;
-    z-index: 99;
-    box-shadow: 10px 0 30px rgba(0,0,0,0.5);
-  }
-
-  .sidebar.open {
-    left: 0;
-  }
-
-  .main-container {
-    padding-top: 60px; 
-  }
-
-  .content {
-    padding: 20px;
-  }
-}
-
-@media (max-width: 900px) {
-  .servicos-lista {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px) {
-  .main-header h1 { font-size: 1.8rem; }
-  
-  .carousel-slides {
-    min-height: 280px; 
-  }
-
-  .carousel-container img {
-    height: 200px; 
-  }
-  
-  .carousel-btn {
-    width: 35px;
-    height: 35px;
-    font-size: 0.9rem;
-  }
-  
-  .carousel-btn.prev { left: 5px; }
-  .carousel-btn.next { right: 5px; }
-  
-  .carousel-container figcaption {
-    font-size: 0.95rem;
-  }
-}
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateActiveNav);
+        ticking = true;
+      }
+    }, { passive: true });
+    
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          sidebar.classList.remove('open');
+          if(window.innerWidth <= 1024) menuToggle.innerText = '☰';
+          navLinks.forEach(l => l.classList.remove('active'));
+          this.classList.add('active');
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
