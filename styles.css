@@ -1,3 +1,6 @@
+/* IMPORTAÇÃO DAS NOVAS FONTES PREMIUM (MONTSERRAT E INTER) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -27,7 +30,7 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   margin: 0;
   padding: 0;
   color: var(--text-primary);
@@ -109,6 +112,7 @@ body {
 }
 
 .brand-sub {
+  font-family: 'Montserrat', sans-serif;
   font-size: 0.8rem;
   color: #ffffff;
   font-weight: 600;
@@ -180,7 +184,7 @@ body {
 }
 
 .main-header h1 {
-  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 2.5rem;
   color: #ffffff;
   margin: 0;
@@ -211,6 +215,16 @@ body {
   border: 1px solid rgba(4, 20, 48, 0.2);
 }
 
+/* SUBTÍTULOS ATUALIZADOS: Centralizados e com fonte maior */
+.subtitle {
+  text-align: center !important;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  color: var(--text-secondary);
+  font-size: 1.15rem; /* Aumentado de ~0.9rem para 1.15rem para melhor leitura */
+  font-weight: 500;
+}
+
 .hero {
   padding-top: 30px !important;
 }
@@ -237,7 +251,8 @@ body {
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.9rem;
   color: var(--accent-blue);
   margin-top: 0;
   margin-bottom: 15px;
@@ -262,6 +277,12 @@ h2 {
   flex-direction: column;
 }
 
+.servico-item h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  margin-top: 0;
+}
+
 .icon-container {
   font-size: 2.2rem;
   margin-bottom: 15px;
@@ -273,7 +294,7 @@ h2 {
 .carousel-container {
   position: relative;
   width: 100%;
-  max-width: 800px; /* Expandido para acomodar a largura dupla no PC */
+  max-width: 800px; 
   margin: 0 auto;
   overflow: hidden;
   border-radius: 14px;
@@ -285,7 +306,7 @@ h2 {
   position: relative;
   width: 100%;
   height: auto;
-  min-height: 450px; /* Mantém proporção boa no PC */
+  min-height: 450px; 
   display: flex;
   align-items: center;
 }
@@ -314,12 +335,13 @@ h2 {
 .carousel-container img {
   width: 100%;
   height: 360px;
-  object-fit: contain; /* ESSENCIAL: Mostra o Antes e Depois completo sem cortes */
+  object-fit: contain; 
   background-color: #ffffff;
   border-radius: 8px;
 }
 
 .carousel-container figcaption {
+  font-family: 'Montserrat', sans-serif;
   margin-top: 10px;
   font-weight: 700;
   font-size: 1rem;
@@ -357,6 +379,7 @@ h2 {
 
 /* Botões */
 .button {
+  font-family: 'Inter', sans-serif;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -414,11 +437,11 @@ h2 {
   .main-header h1 { font-size: 1.8rem; }
   
   .carousel-slides {
-    min-height: 280px; /* Redução dinâmica de altura para o mobile */
+    min-height: 280px; 
   }
 
   .carousel-container img {
-    height: 200px; /* Encaixa a foto horizontal perfeitamente na tela do celular */
+    height: 200px; 
   }
   
   .carousel-btn {
@@ -433,8 +456,4 @@ h2 {
   .carousel-container figcaption {
     font-size: 0.85rem;
   }
-
-  .subtitle {
-  text-align: center;
-}
 }
