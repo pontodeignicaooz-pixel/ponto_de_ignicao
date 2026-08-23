@@ -18,7 +18,10 @@ const WHATSAPP_NUMBER = '5511991030069';
 // Inicialização
 // ==========================================
 document.addEventListener('DOMContentLoaded', function() {
-  inicializarSimulador();
+  // Inicializar simulador somente se a seção estiver presente (simulador pode estar comentado/desativado)
+  if (document.getElementById('simulador')) {
+    inicializarSimulador();
+  }
   configurarEventosMenu();
   configurarCarrossel();
 });
@@ -28,10 +31,17 @@ function inicializarSimulador() {
   adicionarServico();
   
   // Configurar eventos
-  document.getElementById('addServiceBtn').addEventListener('click', adicionarServico);
-  document.getElementById('simuladorForm').addEventListener('submit', enviarOrcamento);
-  document.getElementById('incluirVisita').addEventListener('change', atualizarTotal);
-  document.getElementById('visitaValue').addEventListener('input', atualizarTotal);
+  const addBtn = document.getElementById('addServiceBtn');
+  if (addBtn) addBtn.addEventListener('click', adicionarServico);
+
+  const form = document.getElementById('simuladorForm');
+  if (form) form.addEventListener('submit', enviarOrcamento);
+
+  const incluirVisitaEl = document.getElementById('incluirVisita');
+  if (incluirVisitaEl) incluirVisitaEl.addEventListener('change', atualizarTotal);
+
+  const visitaValueEl = document.getElementById('visitaValue');
+  if (visitaValueEl) visitaValueEl.addEventListener('input', atualizarTotal);
 }
 
 // ==========================================
@@ -39,6 +49,7 @@ function inicializarSimulador() {
 // ==========================================
 function adicionarServico() {
   const container = document.getElementById('servicesContainer');
+  if (!container) return;
   const index = container.children.length;
   
   const serviceItem = document.createElement('div');
@@ -72,8 +83,8 @@ function adicionarServico() {
   const select = serviceItem.querySelector('.servico-select');
   const input = serviceItem.querySelector('.quantidade-input');
   
-  select.addEventListener('change', atualizarTotal);
-  input.addEventListener('input', atualizarTotal);
+  if (select) select.addEventListener('change', atualizarTotal);
+  if (input) input.addEventListener('input', atualizarTotal);
 }
 
 function removerServico(index) {
@@ -95,7 +106,7 @@ function atualizarTotal() {
     const select = item.querySelector('.servico-select');
     const input = item.querySelector('.quantidade-input');
     
-    if (select.value) {
+    if (select && select.value) {
       const preco = parseFloat(select.options[select.selectedIndex].dataset.preco) || 0;
       const quantidade = parseInt(input.value) || 1;
       subtotalServicos += preco * quantidade;
@@ -103,17 +114,22 @@ function atualizarTotal() {
   });
   
   // Calcular visita técnica
-  const incluirVisita = document.getElementById('incluirVisita').checked;
-  const visitaValue = parseFloat(document.getElementById('visitaValue').value) || 0;
+  const incluirVisitaEl = document.getElementById('incluirVisita');
+  const incluirVisita = incluirVisitaEl ? incluirVisitaEl.checked : false;
+  const visitaValue = parseFloat((document.getElementById('visitaValue') || {value:0}).value) || 0;
   const subtotalVisita = incluirVisita ? visitaValue : 0;
   
   // Calcular total
   const total = subtotalServicos + subtotalVisita;
   
   // Atualizar exibição
-  document.getElementById('subtotalServiços').textContent = formatarMoeda(subtotalServicos);
-  document.getElementById('subtotalVisita').textContent = formatarMoeda(subtotalVisita);
-  document.getElementById('totalOrcamento').textContent = formatarMoeda(total);
+  const subtotalEl = document.getElementById('subtotalServiços');
+  const visitaEl = document.getElementById('subtotalVisita');
+  const totalEl = document.getElementById('totalOrcamento');
+
+  if (subtotalEl) subtotalEl.textContent = formatarMoeda(subtotalServicos);
+  if (visitaEl) visitaEl.textContent = formatarMoeda(subtotalVisita);
+  if (totalEl) totalEl.textContent = formatarMoeda(total);
   
   // Armazenar valores globais para envio
   window.orcamentoDados = {
@@ -137,9 +153,13 @@ function enviarOrcamento(e) {
   e.preventDefault();
   
   // Validar campos obrigatórios
-  const nome = document.getElementById('nome').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const telefone = document.getElementById('telefone').value.trim();
+  const nomeEl = document.getElementById('nome');
+  const emailEl = document.getElementById('email');
+  const telefoneEl = document.getElementById('telefone');
+
+  const nome = nomeEl ? nomeEl.value.trim() : '';
+  const email = emailEl ? emailEl.value.trim() : '';
+  const telefone = telefoneEl ? telefoneEl.value.trim() : '';
   
   if (!nome || !email || !telefone) {
     alert('Por favor, preencha todos os dados obrigatórios (Nome, E-mail e Telefone).');
@@ -174,7 +194,7 @@ function enviarOrcamento(e) {
     const select = item.querySelector('.servico-select');
     const input = item.querySelector('.quantidade-input');
     
-    if (select.value) {
+    if (select && select.value) {
       const servico = select.value;
       const quantidade = parseInt(input.value) || 1;
       const preco = parseFloat(select.options[select.selectedIndex].dataset.preco) || 0;
@@ -188,7 +208,8 @@ function enviarOrcamento(e) {
   });
   
   // Adicionar visita técnica se incluída
-  if (document.getElementById('incluirVisita').checked) {
+  const incluirVisitaEl = document.getElementById('incluirVisita');
+  if (incluirVisitaEl && incluirVisitaEl.checked) {
     const visitaValue = parseFloat(document.getElementById('visitaValue').value) || 0;
     mensagem += `🚗 *Visita Técnica:* ${formatarMoeda(visitaValue)}\n\n`;
   }
@@ -196,9 +217,9 @@ function enviarOrcamento(e) {
   mensagem += `━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
   mensagem += `*💰 RESUMO DO ORÇAMENTO*\n`;
   mensagem += `━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-  mensagem += `*Subtotal de Serviços:* ${document.getElementById('subtotalServiços').textContent}\n`;
-  mensagem += `*Visita Técnica:* ${document.getElementById('subtotalVisita').textContent}\n`;
-  mensagem += `*TOTAL ESTIMADO:* ${document.getElementById('totalOrcamento').textContent}\n\n`;
+  mensagem += `*Subtotal de Serviços:* ${document.getElementById('subtotalServiços') ? document.getElementById('subtotalServiços').textContent : 'R$ 0,00'}\n`;
+  mensagem += `*Visita Técnica:* ${document.getElementById('subtotalVisita') ? document.getElementById('subtotalVisita').textContent : 'R$ 0,00'}\n`;
+  mensagem += `*TOTAL ESTIMADO:* ${document.getElementById('totalOrcamento') ? document.getElementById('totalOrcamento').textContent : 'R$ 0,00'}\n\n`;
   mensagem += `⚠️ *Este é um orçamento estimado. Confirme os valores antes de prosseguir.*\n`;
   
   // Codificar e abrir WhatsApp
