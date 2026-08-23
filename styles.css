@@ -406,7 +406,219 @@ h2 {
 .carousel-btn.prev { left: 10px; }
 .carousel-btn.next { right: 10px; }
 
-/* Botões Gerais */
+/* ==========================================
+   SIMULADOR DE ORÇAMENTO
+   ========================================== */
+.simulator-card {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+  border: 2px solid var(--accent-blue) !important;
+}
+
+.simulator-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.simulator-logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.simulator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-section {
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.form-section h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  color: var(--accent-blue);
+  margin-top: 0;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent-yellow);
+}
+
+.section-info {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0 0 15px 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px 12px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(4, 20, 48, 0.1);
+}
+
+.form-group small {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+.required {
+  color: #ef4444;
+  font-weight: bold;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* CONTAINER DE SERVIÇOS */
+.services-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.service-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  align-items: flex-end;
+}
+
+.service-item .form-group {
+  margin-bottom: 0;
+}
+
+.service-remove {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: var(--transition);
+}
+
+.service-remove:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+}
+
+.button-secondary {
+  background: #64748b;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  width: fit-content;
+}
+
+.button-secondary:hover {
+  background: #475569;
+  transform: translateY(-2px);
+}
+
+/* RESUMO DO ORÇAMENTO */
+.summary-section {
+  background: linear-gradient(135deg, #e0e7ff 0%, #dbeafe 100%) !important;
+  border: 2px solid var(--accent-blue) !important;
+}
+
+.summary-table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(4, 20, 48, 0.1);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.summary-row span:last-child {
+  font-weight: 600;
+  color: var(--accent-blue);
+}
+
+.summary-total {
+  border-bottom: none !important;
+  border-top: 2px solid var(--accent-blue);
+  padding-top: 15px !important;
+  font-size: 1.2rem;
+}
+
+.summary-total strong {
+  color: var(--accent-blue);
+}
+
+/* BOTÕES DE AÇÃO */
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -419,6 +631,23 @@ h2 {
   border: none;
   cursor: pointer;
   font-size: 0.95rem;
+}
+
+.button-cta { 
+  background: var(--accent-blue); 
+  color: white; 
+  padding: 12px 32px;
+}
+
+.button-cta:hover {
+  background: rgba(4, 20, 48, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(4, 20, 48, 0.3);
+}
+
+.button-large {
+  font-size: 1rem;
+  padding: 14px 40px;
 }
 
 .button-whatsapp { 
@@ -437,8 +666,10 @@ h2 {
   box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
 }
 
-.button-cta { background: var(--accent-blue); color: var(--accent-yellow); }
-.final-cta { text-align: center; padding: 40px 20px !important; }
+.final-cta { 
+  text-align: center; 
+  padding: 40px 20px !important; 
+}
 
 /* ==========================================
    OTIMIZAÇÃO COMPLETA PARA TABLETS E CELULARES
@@ -478,6 +709,14 @@ h2 {
   .card {
     padding: 20px 15px; /* Reduzido o espaço interno dos cards no celular */
     margin-bottom: 20px;
+  }
+
+  .service-item {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
   }
 }
 
@@ -525,5 +764,17 @@ h2 {
 
   .card p {
     font-size: 0.95rem; /* Letras do texto principal bem calibradas no mobile */
+  }
+
+  .simulator-logo {
+    width: 60px;
+  }
+
+  .form-section h3 {
+    font-size: 1rem;
+  }
+
+  .summary-total {
+    font-size: 1.1rem;
   }
 }
