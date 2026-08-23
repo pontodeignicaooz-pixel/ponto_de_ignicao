@@ -12,7 +12,7 @@
   <meta name="description" content="Ponto de Ignição: Reparos elétricos residenciais, automação residencial e modernização de fiação em casas antigas em Osasco e região.">
   <meta name="theme-color" content="#041430">
   <meta property="og:title" content="Ponto de Ignição — Soluções Elétricas Inteligentes">
-  <meta property="og:description" content="Problemas na fiação? Mau contato em tomadas e interruptores? Precisa de um ponto de energia extra? Atendimento personalizado para a resolução de seu [...]">
+  <meta property="og:description" content="Problemas na fiação? Mau contato em tomadas e interruptores? Precisa de um ponto de energia extra? Atendimento personalizado para a resolução de seu [...">
   <meta property="og:image" content="imagens/logo.jpg">
   
   <!-- SCHEMA.ORG - LocalBusiness para SEO -->
@@ -54,7 +54,9 @@
         <a href="#sobre" class="nav-link active">Sobre a Empresa</a>
         <a href="#servicos" class="nav-link">Nossos Serviços</a>
         <a href="#portfolio" class="nav-link">Trabalhos Realizados</a>
+        <!-- Simulador temporariamente oculto.
         <a href="#simulador" class="nav-link">Simulador de Orçamento</a>
+        -->
         <a href="#contato" class="nav-link">Solicitar Orçamento</a>
       </nav>
       
@@ -76,195 +78,197 @@
 
       <main class="content">
         
-        <!-- SEÇÃO SOBRE A EMPRESA -->
-        <section id="sobre" class="card hero">
-          <div class="selo-container">
-            <div class="selo-urgencia">
-              <span class="icon-seal">🏠</span>
-              <div>Suporte Residencial</div>
-            </div>
-          </div>
-
-          <div class="header">
-            <h2>Seu problema elétrico resolvido com planejamento e segurança.</h2>
-          </div>
-          
-          <div class="body">
-            <p>A <strong>Ponto de Ignição</strong> é a sua escolha ideal para manter a infraestrutura da sua casa funcionando perfeitamente. Nós somos especializados em diagnosticar e resolver problemas elétricos que comprometem a segurança e eficiência energética da sua residência.</p>
-            <p>Nossa equipe em Osasco é altamente treinada para reabilitar a fiação em residências, trazendo conformidade técnica e abrindo portas para você aproveitar o melhor da automação residencial.</p>
-          </div>
-        </section>
-
-        <!-- SEÇÃO NOSSOS SERVIÇOS -->
-        <section id="servicos" class="card card-servicos">
-          <h2>Nossos Serviços</h2>
-          <p class="subtitle">Soluções completas, desde pequenos reparos à modernização.</p>
-          
-          <div class="servicos-lista">
-            <div class="servico-item">
-              <div class="icon-container">🛠️</div>
-              <h3>Manutenção e Diagnóstico Elétrico</h3>
-              <p>Tomadas que não funcionam? Instalações instáveis? Realizamos uma análise detalhada dos circuitos para corrigir falhas e garantir estabilidade.</p>
-            </div>
-            
-            <div class="servico-item">
-              <div class="icon-container">💡</div>
-              <h3>Automação Residencial (Smart Home)</h3>
-              <p>Transforme sua casa antiga. Instalação de interruptores inteligentes, assistentes virtuais e iluminação automatizada.</p>
-            </div>
-            
-            <div class="servico-item">
-              <div class="icon-container">🔧</div>
-              <h3>Modernização de Casas Antigas</h3>
-              <p>Substituição de fiação antiga e fora do padrão, troca de tomadas velhas por NBR 14136 e adequação de quadros de força.</p>
-            </div>
-            
-            <div class="servico-item">
-              <div class="icon-container">⚙️</div>
-              <h3>Pequenos Reparos e Soluções</h3>
-              <p>Instalação de chuveiros, lustres, ventiladores de teto e troca de resistências com agilidade.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- SEÇÃO TRABALHOS REALIZADOS (COM CARROSSEL INTEGRADO) -->
-        <section id="portfolio" class="card">
-          <h2>Trabalhos Realizados</h2>
-          <p class="subtitle">Veja o antes e depois da modernização em residências na região.</p>
-          
-          <div class="carousel-container">
-            <div class="carousel-slides">
-              <figure class="slide active">
-                <img src="imagens/trabalho1.jpeg" alt="Adequação do Quadro de Força" loading="lazy" width="600" height="400">
-                <figcaption>Adequação do Quadro de Força</figcaption>
-              </figure>
-            
-              <figure class="slide">
-                <img src="imagens/trabalho2.jpeg" alt="Adequação de sistema de distribuição" loading="lazy" width="600" height="400">
-                <figcaption>Adequação de sistema de distribuição</figcaption>
-              </figure>
-            
-              <figure class="slide">
-                <img src="imagens/trabalho3.jpeg" alt="Troca de Fiação Segura" loading="lazy" width="600" height="400">
-                <figcaption>Troca de Fiação Segura</figcaption>
-              </figure>
-            
-              <figure class="slide">
-                <img src="imagens/trabalho4.jpeg" alt="Reparos Rápidos e Seguros" loading="lazy" width="600" height="400">
-                <figcaption>Reparos Rápidos e Seguros</figcaption>
-              </figure>
-
-              <figure class="slide">
-                <img src="imagens/trabalho5.jpeg" alt="Modernização Residencial Avançada" loading="lazy" width="600" height="400">
-                <figcaption>Modernização Residencial Avançada</figcaption>
-              </figure>
-            </div>
-            
-            <button class="carousel-btn prev" id="prevBtn" aria-label="Imagem Anterior">❮</button>
-            <button class="carousel-btn next" id="nextBtn" aria-label="Próxima Imagem">❯</button>
-          </div>
-        </section>
-
-        <!-- SEÇÃO SIMULADOR DE ORÇAMENTO -->
-        <section id="simulador" class="card simulator-card">
-          <div class="simulator-header">
-            <img src="imagens/logo.jpg" alt="Logo Ponto de Ignição" class="simulator-logo" />
-            <h2>Simulador de Orçamento</h2>
-            <p class="subtitle">Solicite aqui seu orçamento sem compromisso.</p>
-          </div>
-
-          <form id="simuladorForm" class="simulator-form">
-            
-            <!-- SEÇÃO DE DADOS PESSOAIS -->
-            <div class="form-section">
-              <h3>📋 Seus Dados</h3>
-              
-              <div class="form-group">
-                <label for="nome">Nome Completo <span class="required">*</span></label>
-                <input type="text" id="nome" name="nome" required placeholder="Seu nome completo" />
-              </div>
-
-              <div class="form-group">
-                <label for="email">E-mail <span class="required">*</span></label>
-                <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com" />
-              </div>
-
-              <div class="form-group">
-                <label for="telefone">Telefone com DDD <span class="required">*</span></label>
-                <input type="tel" id="telefone" name="telefone" required placeholder="(11) 99999-9999" pattern="\\([0-9]{2}\\) [0-9]{4,5}-[0-9]{4}" />
-                <small>Formato: (XX) XXXXX-XXXX</small>
+          <!-- SEÇÃO SOBRE A EMPRESA -->
+          <section id="sobre" class="card hero">
+            <div class="selo-container">
+              <div class="selo-urgencia">
+                <span class="icon-seal">🏠</span>
+                <div>Suporte Residencial</div>
               </div>
             </div>
 
-            <!-- SEÇÃO DE SERVIÇOS -->
-            <div class="form-section">
-              <h3>🔌 Serviços Solicitados</h3>
-              <p class="section-info">Selecione os serviços que você precisa:</p>
-
-              <div id="servicesContainer" class="services-container">
-                <!-- Serviços serão adicionados dinamicamente -->
-              </div>
-
-              <button type="button" id="addServiceBtn" class="button button-secondary">+ Adicionar Outro Serviço</button>
+            <div class="header">
+              <h2>Seu problema elétrico resolvido com planejamento e segurança.</h2>
             </div>
+            
+            <div class="body">
+              <p>A <strong>Ponto de Ignição</strong> é a sua escolha ideal para manter a infraestrutura da sua casa funcionando perfeitamente. Nós somos especializados em diagnosticar e resolver[...]
+              <p>Nossa equipe em Osasco é altamente treinada para reabilitar a fiação em residências, trazendo conformidade técnica e abrindo portas para você aproveitar o melhor da automaçã[...]
+            </div>
+          </section>
 
-            <!-- SEÇÃO DE VISITA TÉCNICA -->
-            <div class="form-section">
-              <h3>🚗 Visita Técnica</h3>
-              
-              <div class="form-group">
-                <label for="visitaValue">Valor da Visita Técnica (R$)</label>
-                <input type="number" id="visitaValue" name="visitaValue" placeholder="0,00" step="0.01" min="0" />
+          <!-- SEÇÃO NOSSOS SERVIÇOS -->
+          <section id="servicos" class="card card-servicos">
+            <h2>Nossos Serviços</h2>
+            <p class="subtitle">Soluções completas, desde pequenos reparos à modernização.</p>
+            
+            <div class="servicos-lista">
+              <div class="servico-item">
+                <div class="icon-container">🛠️</div>
+                <h3>Manutenção e Diagnóstico Elétrico</h3>
+                <p>Tomadas que não funcionam? Instalações instáveis? Realizamos uma análise detalhada dos circuitos para corrigir falhas e garantir estabilidade.</p>
               </div>
               
-              <div class="form-group checkbox-group">
-                <label for="incluirVisita">
-                  <input type="checkbox" id="incluirVisita" name="incluirVisita" />
-                  Incluir visita técnica no orçamento
-                </label>
+              <div class="servico-item">
+                <div class="icon-container">💡</div>
+                <h3>Automação Residencial (Smart Home)</h3>
+                <p>Transforme sua casa antiga. Instalação de interruptores inteligentes, assistentes virtuais e iluminação automatizada.</p>
+              </div>
+              
+              <div class="servico-item">
+                <div class="icon-container">🔧</div>
+                <h3>Modernização de Casas Antigas</h3>
+                <p>Substituição de fiação antiga e fora do padrão, troca de tomadas velhas por NBR 14136 e adequação de quadros de força.</p>
+              </div>
+              
+              <div class="servico-item">
+                <div class="icon-container">⚙️</div>
+                <h3>Pequenos Reparos e Soluções</h3>
+                <p>Instalação de chuveiros, lustres, ventiladores de teto e troca de resistências com agilidade.</p>
               </div>
             </div>
+          </section>
 
-            <!-- RESUMO DO ORÇAMENTO -->
-            <div class="form-section summary-section">
-              <h3>💰 Resumo do Orçamento</h3>
+          <!-- SEÇÃO TRABALHOS REALIZADOS (COM CARROSSEL INTEGRADO) -->
+          <section id="portfolio" class="card">
+            <h2>Trabalhos Realizados</h2>
+            <p class="subtitle">Veja o antes e depois da modernização em residências na região.</p>
+            
+            <div class="carousel-container">
+              <div class="carousel-slides">
+                <figure class="slide active">
+                  <img src="imagens/trabalho1.jpeg" alt="Adequação do Quadro de Força" loading="lazy" width="600" height="400">
+                  <figcaption>Adequação do Quadro de Força</figcaption>
+                </figure>
               
-              <div class="summary-table">
-                <div class="summary-row">
-                  <span>Subtotal de Serviços:</span>
-                  <span id="subtotalServiços">R$ 0,00</span>
+                <figure class="slide">
+                  <img src="imagens/trabalho2.jpeg" alt="Adequação de sistema de distribuição" loading="lazy" width="600" height="400">
+                  <figcaption>Adequação de sistema de distribuição</figcaption>
+                </figure>
+              
+                <figure class="slide">
+                  <img src="imagens/trabalho3.jpeg" alt="Troca de Fiação Segura" loading="lazy" width="600" height="400">
+                  <figcaption>Troca de Fiação Segura</figcaption>
+                </figure>
+              
+                <figure class="slide">
+                  <img src="imagens/trabalho4.jpeg" alt="Reparos Rápidos e Seguros" loading="lazy" width="600" height="400">
+                  <figcaption>Reparos Rápidos e Seguros</figcaption>
+                </figure>
+
+                <figure class="slide">
+                  <img src="imagens/trabalho5.jpeg" alt="Modernização Residencial Avançada" loading="lazy" width="600" height="400">
+                  <figcaption>Modernização Residencial Avançada</figcaption>
+                </figure>
+              </div>
+              
+              <button class="carousel-btn prev" id="prevBtn" aria-label="Imagem Anterior">❮</button>
+              <button class="carousel-btn next" id="nextBtn" aria-label="Próxima Imagem">❯</button>
+            </div>
+          </section>
+
+          <!-- SEÇÃO SIMULADOR DE ORÇAMENTO (OCULTA) -->
+          <!--
+          <section id="simulador" class="card simulator-card">
+            <div class="simulator-header">
+              <img src="imagens/logo.jpg" alt="Logo Ponto de Ignição" class="simulator-logo" />
+              <h2>Simulador de Orçamento</h2>
+              <p class="subtitle">Solicite aqui seu orçamento sem compromisso.</p>
+            </div>
+
+            <form id="simuladorForm" class="simulator-form">
+              
+              <!-- SEÇÃO DE DADOS PESSOAIS -->
+              <div class="form-section">
+                <h3>📋 Seus Dados</h3>
+                
+                <div class="form-group">
+                  <label for="nome">Nome Completo <span class="required">*</span></label>
+                  <input type="text" id="nome" name="nome" required placeholder="Seu nome completo" />
                 </div>
-                <div class="summary-row">
-                  <span>Visita Técnica:</span>
-                  <span id="subtotalVisita">R$ 0,00</span>
+
+                <div class="form-group">
+                  <label for="email">E-mail <span class="required">*</span></label>
+                  <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com" />
                 </div>
-                <div class="summary-row summary-total">
-                  <strong>Total Estimado:</strong>
-                  <strong id="totalOrcamento">R$ 0,00</strong>
+
+                <div class="form-group">
+                  <label for="telefone">Telefone com DDD <span class="required">*</span></label>
+                  <input type="tel" id="telefone" name="telefone" required placeholder="(11) 99999-9999" pattern="\\([0-9]{2}\\) [0-9]{4,5}-[0-9]{4}" />
+                  <small>Formato: (XX) XXXXX-XXXX</small>
                 </div>
               </div>
-            </div>
 
-            <!-- BOTÕES DE AÇÃO -->
-            <div class="form-actions">
-              <button type="submit" class="button button-cta button-large">
-                📱 Enviar via WhatsApp
-              </button>
-              <button type="reset" class="button button-secondary">Limpar Formulário</button>
-            </div>
-          </form>
-        </section>
+              <!-- SEÇÃO DE SERVIÇOS -->
+              <div class="form-section">
+                <h3>🔌 Serviços Solicitados</h3>
+                <p class="section-info">Selecione os serviços que você precisa:</p>
 
-        <!-- SEÇÃO CONTATO -->
-        <section id="contato" class="card final-cta">
-          <h2>Valorize seu imóvel e garanta mais bem-estar.</h2>
-          <p>Instalações elétricas antigas perdem eficiência e consomem mais energia. Agende uma avaliação técnica e ganhe total tranquilidade.</p>
-          <div class="cta-botoes-container">
-            <a href="https://wa.me/5511991030069" target="_blank" rel="noopener noreferrer" class="button button-cta button-large" aria-label="Agendar Atendimento">
-              <span class="icon-cta">📅</span> Solicitar Orçamento
-            </a>
-          </div>
-        </section>
+                <div id="servicesContainer" class="services-container">
+                  <!-- Serviços serão adicionados dinamicamente -->
+                </div>
+
+                <button type="button" id="addServiceBtn" class="button button-secondary">+ Adicionar Outro Serviço</button>
+              </div>
+
+              <!-- SEÇÃO DE VISITA TÉCNICA -->
+              <div class="form-section">
+                <h3>🚗 Visita Técnica</h3>
+                
+                <div class="form-group">
+                  <label for="visitaValue">Valor da Visita Técnica (R$)</label>
+                  <input type="number" id="visitaValue" name="visitaValue" placeholder="0,00" step="0.01" min="0" />
+                </div>
+                
+                <div class="form-group checkbox-group">
+                  <label for="incluirVisita">
+                    <input type="checkbox" id="incluirVisita" name="incluirVisita" />
+                    Incluir visita técnica no orçamento
+                  </label>
+                </div>
+              </div>
+
+              <!-- RESUMO DO ORÇAMENTO -->
+              <div class="form-section summary-section">
+                <h3>💰 Resumo do Orçamento</h3>
+                
+                <div class="summary-table">
+                  <div class="summary-row">
+                    <span>Subtotal de Serviços:</span>
+                    <span id="subtotalServiços">R$ 0,00</span>
+                  </div>
+                  <div class="summary-row">
+                    <span>Visita Técnica:</span>
+                    <span id="subtotalVisita">R$ 0,00</span>
+                  </div>
+                  <div class="summary-row summary-total">
+                    <strong>Total Estimado:</strong>
+                    <strong id="totalOrcamento">R$ 0,00</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- BOTÕES DE AÇÃO -->
+              <div class="form-actions">
+                <button type="submit" class="button button-cta button-large">
+                  📱 Enviar via WhatsApp
+                </button>
+                <button type="reset" class="button button-secondary">Limpar Formulário</button>
+              </div>
+            </form>
+          </section>
+          -->
+
+          <!-- SEÇÃO CONTATO -->
+          <section id="contato" class="card final-cta">
+            <h2>Valorize seu imóvel e garanta mais bem-estar.</h2>
+            <p>Instalações elétricas antigas perdem eficiência e consomem mais energia. Agende uma avaliação técnica e ganhe total tranquilidade.</p>
+            <div class="cta-botoes-container">
+              <a href="https://wa.me/5511991030069" target="_blank" rel="noopener noreferrer" class="button button-cta button-large" aria-label="Agendar Atendimento">
+                <span class="icon-cta">📅</span> Solicitar Orçamento
+              </a>
+            </div>
+          </section>
 
       </main>
     </div>
